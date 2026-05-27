@@ -1,0 +1,179 @@
+.hero {
+  position: relative;
+  min-height: 100vh;
+  display: flex;
+  align-items: flex-end;
+  padding: 0 48px 96px;
+  overflow: hidden;
+}
+
+.bgImg {
+  position: absolute;
+  inset: -20%;
+  background: url('https://images.unsplash.com/photo-1518770660439-4636190af475?w=1600&q=80')
+    center / cover no-repeat;
+  opacity: 0.32;
+  z-index: 0;
+  will-change: transform;
+}
+
+.bgOverlay {
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(180deg, rgba(7,15,7,0.15) 0%, rgba(7,15,7,0.65) 55%, var(--bg) 100%),
+    radial-gradient(ellipse 70% 55% at 65% 35%, rgba(57,255,110,0.07) 0%, transparent 70%);
+  z-index: 1;
+}
+
+.gridOverlay {
+  position: absolute;
+  inset: 0;
+  background-image:
+    linear-gradient(var(--border2) 1px, transparent 1px),
+    linear-gradient(90deg, var(--border2) 1px, transparent 1px);
+  background-size: 60px 60px;
+  z-index: 1;
+  opacity: 0.5;
+}
+
+.content {
+  position: relative;
+  z-index: 2;
+  max-width: 740px;
+}
+
+.tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 9px;
+  background: var(--green-muted);
+  border: 1px solid var(--border);
+  border-radius: 100px;
+  padding: 5px 16px;
+  font-size: 11px;
+  font-weight: 600;
+  color: var(--green);
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  margin-bottom: 28px;
+  opacity: 0; /* GSAP will animate this */
+}
+
+.tagDot {
+  width: 6px;
+  height: 6px;
+  background: var(--green);
+  border-radius: 50%;
+  animation: tagPulse 2s ease-in-out infinite;
+}
+
+@keyframes tagPulse {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50% { opacity: 0.4; transform: scale(1.5); }
+}
+
+.content h1 {
+  font-family: var(--font-display);
+  font-size: clamp(44px, 5.5vw, 80px);
+  font-weight: 800;
+  line-height: 1.02;
+  letter-spacing: -0.025em;
+  color: #fff;
+  margin-bottom: 22px;
+  opacity: 0; /* GSAP */
+}
+
+.content h1 em {
+  font-style: normal;
+  color: var(--green);
+}
+
+.sub {
+  font-size: 17px;
+  color: var(--text2);
+  max-width: 520px;
+  line-height: 1.7;
+  font-weight: 300;
+  margin-bottom: 38px;
+  opacity: 0; /* GSAP */
+}
+
+.actions {
+  display: flex;
+  gap: 14px;
+  flex-wrap: wrap;
+  opacity: 0; /* GSAP */
+}
+
+.btnHeroPrimary {
+  display: inline-flex;
+  align-items: center;
+  padding: 14px 30px;
+  background: var(--green);
+  border: none;
+  border-radius: 8px;
+  color: #070f07;
+  font-size: 14px;
+  font-weight: 600;
+  font-family: var(--font-body);
+  cursor: pointer;
+  text-decoration: none;
+  transition: background 0.2s, transform 0.2s;
+}
+
+.btnHeroPrimary:hover {
+  background: var(--green-dim);
+  transform: translateY(-2px);
+}
+
+.btnHeroOutline {
+  display: inline-flex;
+  align-items: center;
+  padding: 14px 30px;
+  background: transparent;
+  border: 1px solid rgba(255,255,255,0.25);
+  border-radius: 8px;
+  color: #fff;
+  font-size: 14px;
+  font-weight: 500;
+  font-family: var(--font-body);
+  cursor: pointer;
+  text-decoration: none;
+  transition: border-color 0.2s, background 0.2s;
+}
+
+.btnHeroOutline:hover {
+  border-color: rgba(255,255,255,0.5);
+  background: rgba(255,255,255,0.05);
+}
+
+.scrollCue {
+  position: absolute;
+  bottom: 32px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.scrollLine {
+  width: 1px;
+  height: 48px;
+  background: linear-gradient(to bottom, var(--green), transparent);
+  animation: scrollDown 2s ease-in-out infinite;
+}
+
+@keyframes scrollDown {
+  0% { transform: scaleY(0); transform-origin: top; opacity: 1; }
+  50% { transform: scaleY(1); transform-origin: top; opacity: 1; }
+  51% { transform: scaleY(1); transform-origin: bottom; opacity: 1; }
+  100% { transform: scaleY(0); transform-origin: bottom; opacity: 0; }
+}
+
+@media (max-width: 768px) {
+  .hero { padding: 0 20px 72px; }
+  .content h1 { font-size: 38px; }
+}

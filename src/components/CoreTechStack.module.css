@@ -1,0 +1,202 @@
+.section {
+  background: var(--bg2);
+  padding: 80px 48px;
+}
+
+.header { margin-bottom: 48px; }
+
+.title {
+  font-family: var(--font-display);
+  font-size: clamp(26px, 3vw, 40px);
+  font-weight: 700;
+  color: #fff;
+  letter-spacing: -0.02em;
+  margin-bottom: 16px;
+}
+
+.titleLine {
+  height: 1px;
+  background: linear-gradient(90deg, var(--green), transparent);
+  width: 100%;
+}
+
+/* ── Grid ── */
+.grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+}
+
+/* ── Card ── */
+.card {
+  background: var(--card);
+  border: 1px solid var(--border2);
+  border-radius: var(--radius-lg);
+  padding: 28px 28px 32px;
+  text-decoration: none;
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  transition: border-color 0.25s, background 0.25s, transform 0.3s cubic-bezier(0.22,1,0.36,1);
+  cursor: pointer;
+}
+
+.card:hover {
+  border-color: rgba(57,255,110,0.4);
+  background: var(--card2);
+  transform: translateY(-4px);
+}
+
+.cardActive {
+  border-color: var(--green) !important;
+  background: rgba(57,255,110,0.04);
+}
+
+/* ── Card top row ── */
+.cardTop {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  margin-bottom: 24px;
+}
+
+.iconWrap {
+  width: 42px;
+  height: 42px;
+  background: var(--green-muted);
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--green);
+  flex-shrink: 0;
+}
+
+.iconWrap svg { width: 20px; height: 20px; }
+
+.sysId {
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  color: var(--text3);
+}
+
+.liveBadge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  color: var(--green);
+}
+
+.liveDot {
+  width: 7px;
+  height: 7px;
+  background: var(--green);
+  border-radius: 50%;
+  animation: blink 1.6s ease-in-out infinite;
+}
+
+@keyframes blink {
+  0%,100% { opacity:1; box-shadow: 0 0 6px var(--green); }
+  50% { opacity:0.3; box-shadow: none; }
+}
+
+/* ── Card content ── */
+.cardName {
+  font-family: var(--font-display);
+  font-size: 22px;
+  font-weight: 700;
+  color: #fff;
+  margin-bottom: 10px;
+  line-height: 1.2;
+}
+
+.cardDesc {
+  font-size: 14px;
+  color: var(--text2);
+  line-height: 1.7;
+  font-weight: 300;
+  margin-bottom: 20px;
+  flex: 1;
+}
+
+/* ── Scan rate bar (BMD card) ── */
+.scanBlock { margin-top: auto; }
+
+.scanDivider {
+  height: 1px;
+  background: var(--border2);
+  margin-bottom: 14px;
+}
+
+.scanRow {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 8px;
+}
+
+.scanLabel { font-size: 12px; color: var(--text3); }
+
+.scanValue {
+  font-family: var(--font-display);
+  font-size: 13px;
+  font-weight: 700;
+  color: var(--green);
+  letter-spacing: 0.05em;
+}
+
+.scanBar {
+  height: 4px;
+  background: rgba(57,255,110,0.15);
+  border-radius: 2px;
+  overflow: hidden;
+}
+
+.scanFill {
+  height: 100%;
+  width: 90%;
+  background: var(--green);
+  border-radius: 2px;
+  animation: scanPulse 2.5s ease-in-out infinite;
+}
+
+@keyframes scanPulse {
+  0%,100% { opacity:1; }
+  50% { opacity:0.5; }
+}
+
+/* ── Feature list ── */
+.features {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin-top: auto;
+}
+
+.features li {
+  font-size: 13px;
+  color: var(--text2);
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-weight: 300;
+}
+
+.features li::before {
+  content: '';
+  width: 8px;
+  height: 8px;
+  background: var(--green);
+  border-radius: 1px;
+  flex-shrink: 0;
+}
+
+@media (max-width: 768px) {
+  .section { padding: 64px 20px; }
+  .grid { grid-template-columns: 1fr; }
+}

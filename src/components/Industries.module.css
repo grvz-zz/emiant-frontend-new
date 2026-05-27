@@ -1,0 +1,75 @@
+.section {
+  background: var(--bg2);
+  padding: 96px 48px;
+}
+
+.header { max-width: 640px; }
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 2px;
+  background: var(--border2);
+}
+
+.card {
+  position: relative;
+  background: var(--card);
+  padding: 36px 28px;
+  overflow: hidden;
+  cursor: default;
+  transition: background 0.25s;
+}
+
+.card:hover { background: var(--card2); }
+
+.card:hover .cardLine { transform: scaleX(1); }
+
+.cardLine {
+  position: absolute;
+  bottom: 0; left: 0; right: 0;
+  height: 2px;
+  background: var(--green);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.35s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.iconWrap {
+  width: 46px;
+  height: 46px;
+  background: var(--green-muted);
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 22px;
+  color: var(--green);
+}
+
+.iconWrap svg { width: 22px; height: 22px; }
+
+.cardTitle {
+  font-family: var(--font-display);
+  font-size: 15px;
+  font-weight: 600;
+  color: #fff;
+  margin-bottom: 10px;
+  line-height: 1.35;
+}
+
+.cardBody {
+  font-size: 13px;
+  color: var(--text2);
+  line-height: 1.7;
+  font-weight: 300;
+}
+
+@media (max-width: 900px) {
+  .grid { grid-template-columns: repeat(2, 1fr); }
+}
+
+@media (max-width: 480px) {
+  .section { padding: 64px 20px; }
+  .grid { grid-template-columns: 1fr; }
+}

@@ -1,0 +1,113 @@
+.section {
+  background: var(--bg2);
+  padding: 96px 48px;
+}
+
+.header { max-width: 640px; }
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+}
+
+.card {
+  background: var(--card);
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  border: 1px solid var(--border2);
+  transition: border-color 0.25s, transform 0.3s cubic-bezier(0.22, 1, 0.36, 1);
+  display: flex;
+  flex-direction: column;
+}
+
+.card:hover {
+  border-color: var(--border);
+  transform: translateY(-5px);
+}
+
+.imgWrap {
+  width: 100%;
+  height: 190px;
+  overflow: hidden;
+  flex-shrink: 0;
+}
+
+.img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.5s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.card:hover .img { transform: scale(1.06); }
+
+.body {
+  padding: 26px 26px 28px;
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+}
+
+.tag {
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--green);
+  margin-bottom: 12px;
+}
+
+.title {
+  font-family: var(--font-display);
+  font-size: 19px;
+  font-weight: 700;
+  color: #fff;
+  line-height: 1.25;
+  margin-bottom: 12px;
+}
+
+.excerpt {
+  font-size: 13px;
+  color: var(--text2);
+  line-height: 1.7;
+  margin-bottom: 22px;
+  font-weight: 300;
+  flex: 1;
+}
+
+.readLink {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--green);
+  text-decoration: none;
+  transition: gap 0.25s;
+}
+
+.readLink:hover { gap: 12px; }
+
+.arrow {
+  display: flex;
+  align-items: center;
+}
+
+.arrow svg {
+  width: 14px;
+  height: 14px;
+  flex-shrink: 0;
+}
+
+@media (max-width: 900px) {
+  .grid { grid-template-columns: 1fr 1fr; }
+  .grid .card:last-child { grid-column: 1 / -1; max-width: 420px; }
+}
+
+@media (max-width: 600px) {
+  .section { padding: 64px 20px; }
+  .grid { grid-template-columns: 1fr; }
+  .grid .card:last-child { grid-column: unset; max-width: unset; }
+}
