@@ -107,7 +107,7 @@ export default function Contact() {
             <p>
               <a href="mailto:partnerships@emiant.com">partnerships@emiant.com</a>
               <br/>
-              <a href="tel:+14085550192">+1 (408) 555-0192</a>
+              <a href="tel:93067 31085">+91 93067 31085</a>
             </p>
           </div>
         </div>
