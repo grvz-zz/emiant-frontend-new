@@ -85,15 +85,21 @@ export default function Contact() {
         <div className={`reveal-right ${styles.info}`} ref={infoRef}>
           <div className={styles.infoBlock}>
             <h3 className={styles.infoTitle}><LocationIcon /> Headquarters</h3>
-            <p>Emiant Innovations Pvt Ltd<br/>Kakinada, Andhra Pradesh<br/>India</p>
-            <div className={styles.mapEmbed}>
-              <iframe
-                src="https://maps.google.com/maps?q=1400+Silicon+Way,+San+Jose,+CA&output=embed"
-                title="Emiant Innovations HQ"
-                loading="lazy"
-                allowFullScreen
-              />
-            </div>
+            <p>Emiant Innovations Pvt Ltd<br/>Thotangi, Nidadavolu<br/>West Godavari, Andhra Pradesh<br/>India</p>
+            <a
+                href="https://maps.app.goo.gl/GeZQkTWMkEMurXow9"
+                target="_blank"
+                rel="noopener noreferrer"
+                className={styles.mapEmbed}
+              >
+                <iframe
+                  src="https://maps.google.com/maps?q=Emiant+Innovations+Pvt+Ltd+Nidadavolu&output=embed&z=16"
+                  title="Emiant Innovations HQ"
+                  loading="lazy"
+                  style={{pointerEvents:'none'}}
+                />
+                <div className={styles.mapOverlay}>View on Google Maps ↗</div>
+              </a>
           </div>
 
           <div className={styles.infoBlock}>

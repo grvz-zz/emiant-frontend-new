@@ -9,7 +9,7 @@ export default function Footer() {
       <nav className={styles.links}>
         {LINKS.map(l => <a key={l} href="#">{l}</a>)}
       </nav>
-      <p className={styles.copy}>© 2026 Emiant Innovations. All rights reserved.</p>
+      <p className={styles.copy}>© 2024 Emiant Innovations. All rights reserved.</p>
     </footer>
   )
 }

@@ -56,24 +56,29 @@ export default function Siphotherm() {
     <section className={styles.section} id="siphotherm">
 
       {/* ── HERO ── */}
-      <div className={`reveal ${styles.hero}`} ref={heroRef}>
-        <div className={styles.heroBadge}>
-          <span className={styles.heroDot} />
-          SYS.ACTIVE
+      <div className={`reveal ${styles.heroGrid}`} ref={heroRef}>
+        <div className={styles.hero}>
+          <div className={styles.heroBadge}>
+            <span className={styles.heroDot} />
+            SYS.ACTIVE
+          </div>
+          <h2 className={styles.heroTitle}>
+            Passive Thermal Control.<br />
+            Zero Power.<br />
+            Maximum Safety.
+          </h2>
+          <p className={styles.heroDesc}>
+            Siphotherm™ is an advanced, ultra-thin passive thermal management material
+            designed to dissipate high-density heat loads in constrained environments
+            without reliance on active cooling mechanisms.
+          </p>
+          <div className={styles.heroActions}>
+            <button className="btn-primary">View Datasheet</button>
+            <button className="btn-outline">Request Sample</button>
+          </div>
         </div>
-        <h2 className={styles.heroTitle}>
-          Passive Thermal Control.<br />
-          Zero Power.<br />
-          Maximum Safety.
-        </h2>
-        <p className={styles.heroDesc}>
-          Siphotherm™ is an advanced, ultra-thin passive thermal management material
-          designed to dissipate high-density heat loads in constrained environments
-          without reliance on active cooling mechanisms.
-        </p>
-        <div className={styles.heroActions}>
-          <button className="btn-primary">View Datasheet</button>
-          <button className="btn-outline">Request Sample</button>
+        <div className={styles.heroImg}>
+          <img src="/siphotherm.jpeg" alt="Siphotherm" />
         </div>
       </div>
 
