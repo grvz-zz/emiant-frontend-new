@@ -2,12 +2,12 @@ import { useScrollAnimation, useStaggerAnimation } from '../hooks/useScrollAnima
 import styles from './Team.module.css'
 
 const MEMBERS = [
-  { name: 'Drake',   title: 'CEO',            img: '/drake.jpg' },
-  { name: 'Dr. Honey Singh', title: 'CTO',            img: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=300&q=80' },
-  { name: 'King', title: 'VP Engineering', img: 'https://images.unsplash.com/photo-1531746020798-e6953c6e8e04?w=300&q=80' },
-  { name: 'J Star',       title: 'Head of R&D',    img: 'https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=300&q=80' },
-  { name: 'Raftaar',    title: 'Lead Engineer',  img: 'https://images.unsplash.com/photo-1487412720507-e7ab37603c6f?w=300&q=80' },
-  { name: 'John Cena',    title: 'Ops Director',   img: 'https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=300&q=80' },
+  { name: 'Sarah Jenkins',   title: 'CEO',            img: 'https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=300&q=80' },
+  { name: 'Dr. Marcus Chen', title: 'CTO',            img: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=300&q=80' },
+  { name: 'Elena Rodriguez', title: 'VP Engineering', img: 'https://images.unsplash.com/photo-1531746020798-e6953c6e8e04?w=300&q=80' },
+  { name: 'David Kim',       title: 'Head of R&D',    img: 'https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=300&q=80' },
+  { name: 'Rachel Smith',    title: 'Lead Engineer',  img: 'https://images.unsplash.com/photo-1487412720507-e7ab37603c6f?w=300&q=80' },
+  { name: 'James Wilson',    title: 'Ops Director',   img: 'https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=300&q=80' },
 ]
 
 export default function Team() {

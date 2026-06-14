@@ -65,6 +65,25 @@
   color: #fff;
 }
 
+.activeLink {
+  color: var(--green) !important;
+}
+
+.logoImg {
+  height: 36px;
+  width: auto;
+  display: block;
+}
+
+.brandName {
+  font-family: var(--font-display);
+  font-size: 15px;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+  color: #fff;
+  white-space: nowrap;
+}
+
 .hamburger {
   display: none;
   flex-direction: column;
@@ -111,10 +130,4 @@
     padding: 14px 24px;
     font-size: 15px;
   }
-}
-
-.logoImg {
-  height: 36px;
-  width: auto;
-  display: block;
 }

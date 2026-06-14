@@ -253,6 +253,24 @@
   box-shadow: 0 0 12px rgba(57,255,110,0.4);
 }
 
+.heroGrid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 56px;
+  align-items: center;
+  margin-bottom: 64px;
+}
+
+.heroImg img {
+  width: 100%;
+  border-radius: var(--radius-lg);
+  border: 1px solid var(--border2);
+}
+
+@media (max-width: 768px) {
+  .heroGrid { grid-template-columns: 1fr; }
+}
+
 @media (max-width: 900px) {
   .section { padding: 64px 20px; }
   .advantageGrid { grid-template-columns: 1fr; }
