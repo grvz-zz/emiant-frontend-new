@@ -60,7 +60,7 @@ export default function Footer() {
         ))}
       </div>
 
-      <p className={styles.copy}>© 2024 Emiant Innovations. All rights reserved.</p>
+      <p className={styles.copy}>© 2026 Emiant Innovations. All rights reserved.</p>
     </footer>
   )
 }
