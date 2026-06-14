@@ -78,44 +78,40 @@
 
 .productImgWrap {
   position: relative;
-  border: 1px solid var(--border2);
-  border-radius: var(--radius-lg);
-  overflow: hidden;
-  background: var(--card);
+  border: none;
+  border-radius: 0;
+  overflow: visible;
+  background: transparent;
 }
 
-.productImg {
+.logoDisplay {
   width: 100%;
   aspect-ratio: 1;
-  object-fit: cover;
-  display: block;
-  filter: saturate(0.4) brightness(0.7);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: transparent;
+  padding: 32px;
 }
 
-.imgSpecId {
-  position: absolute;
-  bottom: 12px; right: 12px;
-  font-size: 9px;
-  letter-spacing: 0.1em;
-  color: var(--text3);
+.heroLogo {
+  width: 68%;
+  height: auto;
+  object-fit: contain;
+  filter: drop-shadow(0 0 32px rgba(14,255,72,0.35)) drop-shadow(0 0 80px rgba(14,255,72,0.15));
+  animation: logoPulse 3s ease-in-out infinite;
 }
 
-.imgCornerTL, .imgCornerBR {
-  position: absolute;
-  width: 18px; height: 18px;
+@keyframes logoPulse {
+  0%, 100% { filter: drop-shadow(0 0 32px rgba(14,255,72,0.35)) drop-shadow(0 0 80px rgba(14,255,72,0.15)); }
+  50%       { filter: drop-shadow(0 0 48px rgba(14,255,72,0.55)) drop-shadow(0 0 100px rgba(14,255,72,0.25)); }
 }
 
-.imgCornerTL {
-  top: 10px; left: 10px;
-  border-top: 1.5px solid var(--green);
-  border-left: 1.5px solid var(--green);
-}
+.imgSpecId { display: none; }
 
-.imgCornerBR {
-  bottom: 10px; right: 10px;
-  border-bottom: 1.5px solid var(--green);
-  border-right: 1.5px solid var(--green);
-}
+.imgCornerTL, .imgCornerBR { display: none; }
+
+.imgSpecId { display: none; }
 
 /* ── VALUES ── */
 .values {
@@ -320,7 +316,7 @@
 
 .partnerGrid {
   display: grid;
-  grid-template-columns: repeat(6, 1fr);
+  grid-template-columns: repeat(4, 1fr);
   gap: 12px;
 }
 
@@ -328,11 +324,12 @@
   border: 1px solid var(--border2);
   border-radius: var(--radius);
   overflow: hidden;
-  aspect-ratio: 1.6;
-  transition: border-color 0.25s;
+  aspect-ratio: 2;
+  transition: border-color 0.25s, background 0.25s;
+  background: var(--card);
 }
 
-.partnerCard:hover { border-color: var(--border); }
+.partnerCard:hover { border-color: var(--border); background: var(--card2); }
 
 .partnerInner {
   width: 100%;
@@ -340,8 +337,17 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  background: var(--card);
+  padding: 24px 28px;
 }
+
+.partnerLogo {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  transition: opacity 0.25s;
+}
+
+.partnerCard:hover .partnerLogo { opacity: 0.8; }
 
 .partnerLabel {
   font-family: var(--font-display);

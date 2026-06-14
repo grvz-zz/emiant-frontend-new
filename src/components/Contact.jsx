@@ -85,7 +85,7 @@ export default function Contact() {
         <div className={`reveal-right ${styles.info}`} ref={infoRef}>
           <div className={styles.infoBlock}>
             <h3 className={styles.infoTitle}><LocationIcon /> Headquarters</h3>
-            <p>Emiant Innovations Pvt Ltd<br/>Thotangi, Nidadavolu<br/>West Godavari, Andhra Pradesh<br/>India</p>
+            <p>Emiant Innovations Pvt Ltd<br/>59-8-38, Turangi, Jagannaickpur<br/>Kakinada(Urban), East-Godavari<br/>Andhra Pradesh - 533002</p>
             <a
                 href="https://maps.app.goo.gl/GeZQkTWMkEMurXow9"
                 target="_blank"

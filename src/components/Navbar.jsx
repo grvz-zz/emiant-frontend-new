@@ -5,9 +5,9 @@ import styles from './Navbar.module.css'
 const NAV_LINKS = [
   { label: 'Solutions',   href: '/#applications' },
   { label: 'Technology',  href: '/#technology' },
-  { label: 'Siphotherm',  href: '/siphotherm', exact: true },
+  { label: 'Siphotherm',  href: '/#siphotherm' },
   { label: 'BMS / BMD',   href: '/#bmdbms' },
-  { label: 'About',       href: '/about',       exact: true },
+  { label: 'About',       href: '/#about' },
   { label: 'Contact',     href: '/#contact' },
 ]
 
@@ -86,9 +86,9 @@ export default function Navbar() {
         ))}
       </ul>
 
-      <Link to="/about" className="btn-outline" style={{ fontSize: '13px', whiteSpace: 'nowrap' }}>
+      <a href="/#contact" onClick={(e) => handleHashLink(e, '/#contact')} className="btn-outline" style={{ fontSize: '13px', whiteSpace: 'nowrap' }}>
         Get Started
-      </Link>
+      </a>
 
       <button
         className={styles.hamburger}
