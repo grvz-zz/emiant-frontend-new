@@ -52,6 +52,16 @@
   background: rgba(57,255,110,0.04);
 }
 
+.cardDisabled {
+  cursor: default;
+}
+
+.cardDisabled:hover {
+  border-color: var(--border2);
+  background: var(--card);
+  transform: none;
+}
+
 /* ── Card top row ── */
 .cardTop {
   display: flex;
@@ -176,6 +186,10 @@
   flex-direction: column;
   gap: 8px;
   margin-top: auto;
+}
+
+.scanBlock + .features {
+  margin-top: 18px;
 }
 
 .features li {

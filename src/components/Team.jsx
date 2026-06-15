@@ -2,12 +2,24 @@ import { useScrollAnimation, useStaggerAnimation } from '../hooks/useScrollAnima
 import styles from './Team.module.css'
 
 const MEMBERS = [
-  { name: 'Sarah Jenkins',   title: 'CEO',            img: 'https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=300&q=80' },
-  { name: 'Dr. Marcus Chen', title: 'CTO',            img: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=300&q=80' },
-  { name: 'Elena Rodriguez', title: 'VP Engineering', img: 'https://images.unsplash.com/photo-1531746020798-e6953c6e8e04?w=300&q=80' },
-  { name: 'David Kim',       title: 'Head of R&D',    img: 'https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=300&q=80' },
-  { name: 'Rachel Smith',    title: 'Lead Engineer',  img: 'https://images.unsplash.com/photo-1487412720507-e7ab37603c6f?w=300&q=80' },
-  { name: 'James Wilson',    title: 'Ops Director',   img: 'https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=300&q=80' },
+  {
+    name: 'Akshay Kumar',
+    title: 'Chief Executive Officer',
+    linkedin: 'https://in.linkedin.com/in/akshay-kumar-678515106',
+    img: '/akshay.png',
+  },
+  {
+    name: 'Naveen Chitturi',
+    title: 'Chief Operations Officer',
+    linkedin: 'https://in.linkedin.com/in/naveen-chitturi-b07012119',
+    img: '/naveen.jpg',
+  },
+  {
+    name: 'Chirag',
+    title: 'Chief Technology Officer',
+    linkedin: 'https://in.linkedin.com/in/chirag-jingar-65b97114',
+    img: '/chirag.png',
+  },
 ]
 
 export default function Team() {
@@ -18,22 +30,28 @@ export default function Team() {
     <section className={styles.section} id="team">
       <div className={`reveal ${styles.header}`} ref={headerRef}>
         <div className="section-eyebrow">Leadership</div>
-        <h2 className="section-title">Leadership &amp; Engineering Team</h2>
-        <p className="section-sub">
-          Pioneers in electrochemistry, materials science, and large-scale energy systems.
-        </p>
+        <h2 className="section-title">Our Team</h2>
       </div>
 
       <div className={styles.grid} ref={gridRef}>
-        {MEMBERS.map(({ name, title, img }) => (
+        {MEMBERS.map(({ name, title, linkedin, img }) => (
           <div key={name} className={`${styles.card} reveal`}>
             <div className={styles.avatarWrap}>
-              <img src={img} alt={name} className={styles.avatar} loading="lazy" />
-              <div className={styles.avatarOverlay} />
+              <img src={img} alt={name} className={styles.avatar} loading="lazy"
+                onError={e => { e.target.style.display = 'none' }}
+              />
             </div>
             <div className={styles.info}>
               <div className={styles.name}>{name}</div>
               <div className={styles.title}>{title}</div>
+              <a
+                href={linkedin}
+                target="_blank"
+                rel="noopener noreferrer"
+                className={styles.linkedin}
+              >
+                LinkedIn
+              </a>
             </div>
           </div>
         ))}
