@@ -71,7 +71,7 @@ export default function Hero() {
       <div className={styles.content} ref={contentRef}>
         <div className={styles.tag}>
           <span className={styles.tagDot} />
-          Advanced Silicon Technology
+          Advanced Battery Technology
         </div>
 
         <h1>
