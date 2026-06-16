@@ -69,6 +69,91 @@
   color: var(--green) !important;
 }
 
+.dropdown {
+  position: relative;
+}
+
+.dropdown::after {
+  content: '';
+  position: absolute;
+  top: 100%;
+  left: 0;
+  right: 0;
+  height: 12px;
+}
+
+.dropdownToggle {
+  background: none;
+  border: none;
+  padding: 0;
+  font-family: inherit;
+  color: var(--text2);
+  text-decoration: none;
+  font-size: 14px;
+  font-weight: 400;
+  cursor: pointer;
+  transition: color 0.2s;
+  white-space: nowrap;
+}
+
+.dropdown:hover .dropdownToggle,
+.dropdownToggle:hover {
+  color: #fff;
+}
+
+.dropdownMenu {
+  position: absolute;
+  top: calc(100% + 12px);
+  left: 50%;
+  transform: translateX(-50%);
+  list-style: none;
+  min-width: 160px;
+  background: rgba(7, 15, 7, 0.96);
+  backdrop-filter: blur(12px);
+  border: 1px solid var(--border2);
+  border-radius: 8px;
+  padding: 6px;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+  transition: opacity 0.18s ease, visibility 0.18s ease;
+  z-index: 110;
+}
+
+.dropdown:hover .dropdownMenu,
+.dropdown:focus-within .dropdownMenu,
+.dropdownMenu.dropdownOpen {
+  opacity: 1;
+  visibility: visible;
+  pointer-events: auto;
+}
+
+.dropdownMenu li a,
+.dropdownDisabled {
+  display: block;
+  padding: 8px 14px;
+  font-size: 14px;
+  color: var(--text2);
+  text-decoration: none;
+  border-radius: 6px;
+  white-space: nowrap;
+  transition: background 0.15s, color 0.15s;
+}
+
+.dropdownMenu li a:hover {
+  color: #fff;
+  background: rgba(255, 255, 255, 0.06);
+}
+
+.dropdownDisabled {
+  color: var(--text2);
+  opacity: 0.45;
+  cursor: not-allowed;
+}
+
 .logoImg {
   height: 36px;
   width: auto;
@@ -129,5 +214,33 @@
     display: block;
     padding: 14px 24px;
     font-size: 15px;
+  }
+
+  .dropdown {
+    width: 100%;
+  }
+
+  .dropdownToggle {
+    display: block;
+    width: 100%;
+    text-align: left;
+    padding: 14px 24px;
+    font-size: 15px;
+  }
+
+  .dropdownMenu {
+    position: static;
+    transform: none;
+    width: 100%;
+    border: none;
+    border-radius: 0;
+    background: rgba(255, 255, 255, 0.03);
+    padding: 0;
+  }
+
+  .dropdownMenu li a,
+  .dropdownDisabled {
+    padding: 12px 40px;
+    border-radius: 0;
   }
 }

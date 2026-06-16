@@ -1,14 +1,19 @@
-import { useEffect, useState } from 'react'
+import { Fragment, useEffect, useState } from 'react'
 import { Link, NavLink, useLocation, useNavigate } from 'react-router-dom'
 import styles from './Navbar.module.css'
 
 const NAV_LINKS = [
   { label: 'Solutions',   href: '/#applications' },
   { label: 'Technology',  href: '/#technology' },
-  { label: 'Siphotherm',  href: '/#siphotherm' },
-  { label: 'BMS / BMD',   href: '/#bmdbms' },
+  { label: 'Team',        href: '/#team' },
   { label: 'About',       href: '/#about' },
   { label: 'Contact',     href: '/#contact' },
+]
+
+const PRODUCT_LINKS = [
+  { label: 'Siphotherm', href: '/#siphotherm' },
+  { label: 'BMS / BMD',  href: '/#bmdbms' },
+  { label: 'Cell Doc',   href: '/#celldoc' },
 ]
 
 // Scrolls to a hash anchor, retrying until the element exists in the DOM
@@ -28,6 +33,7 @@ function scrollToHash(hash) {
 export default function Navbar() {
   const [scrolled, setScrolled] = useState(false)
   const [menuOpen, setMenuOpen] = useState(false)
+  const [productsOpen, setProductsOpen] = useState(false)
   const { pathname, hash } = useLocation()
   const navigate = useNavigate()
 
@@ -48,6 +54,7 @@ export default function Navbar() {
   const handleHashLink = (e, href) => {
     e.preventDefault()
     setMenuOpen(false)
+    setProductsOpen(false)
     const [path, hash] = href.split('#')
     const targetPath = path || '/'
     if (pathname === targetPath || pathname === '/') {
@@ -69,20 +76,50 @@ export default function Navbar() {
       </Link>
 
       <ul className={`${styles.links} ${menuOpen ? styles.open : ''}`}>
-        {NAV_LINKS.map(({ label, href, exact }) => (
-          <li key={label}>
-            {href.includes('#') ? (
-              <a href={href} onClick={(e) => handleHashLink(e, href)}>{label}</a>
-            ) : (
-              <NavLink
-                to={href}
-                className={({ isActive }) => isActive ? styles.activeLink : ''}
-                end={exact}
+        {NAV_LINKS.map(({ label, href, exact }, idx) => (
+          <Fragment key={label}>
+            <li>
+              {href.includes('#') ? (
+                <a href={href} onClick={(e) => handleHashLink(e, href)}>{label}</a>
+              ) : (
+                <NavLink
+                  to={href}
+                  className={({ isActive }) => isActive ? styles.activeLink : ''}
+                  end={exact}
+                >
+                  {label}
+                </NavLink>
+              )}
+            </li>
+            {idx === 1 && (
+              <li
+                key="products"
+                className={styles.dropdown}
+                onMouseEnter={() => setProductsOpen(true)}
+                onMouseLeave={() => setProductsOpen(false)}
               >
-                {label}
-              </NavLink>
+                <button
+                  type="button"
+                  className={styles.dropdownToggle}
+                  onClick={() => setProductsOpen(v => !v)}
+                  aria-expanded={productsOpen}
+                >
+                  Products
+                </button>
+                <ul className={`${styles.dropdownMenu} ${productsOpen ? styles.dropdownOpen : ''}`}>
+                  {PRODUCT_LINKS.map(({ label, href }) => (
+                    <li key={label}>
+                      {href ? (
+                        <a href={href} onClick={(e) => handleHashLink(e, href)}>{label}</a>
+                      ) : (
+                        <span className={styles.dropdownDisabled}>{label}</span>
+                      )}
+                    </li>
+                  ))}
+                </ul>
+              </li>
             )}
-          </li>
+          </Fragment>
         ))}
       </ul>
 

@@ -1,10 +1,19 @@
-import { useEffect, useRef } from 'react'
+import { useEffect, useRef, useState } from 'react'
 import { useParallax } from '../hooks/useScrollAnimation'
 import styles from './Hero.module.css'
+
+const ROTATING_WORDS = [
+  'Battery Technology',
+  'Battery Management',
+  'Thermal Management',
+  'Battery Analytics',
+]
 
 export default function Hero() {
   const contentRef = useRef(null)
   const bgRef = useParallax(0.25)
+  const [wordIndex, setWordIndex] = useState(0)
+  const [fading, setFading] = useState(false)
 
   useEffect(() => {
     // GSAP stagger entrance on mount
@@ -41,6 +50,18 @@ export default function Hero() {
     loadGSAP()
   }, [])
 
+  // Cycle through the rotating words with a blur cross-fade
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setFading(true)
+      setTimeout(() => {
+        setWordIndex(i => (i + 1) % ROTATING_WORDS.length)
+        setFading(false)
+      }, 480)
+    }, 2400)
+    return () => clearInterval(interval)
+  }, [])
+
   return (
     <section className={styles.hero} id="top">
       <div className={styles.bgImg} ref={bgRef} />
@@ -55,7 +76,9 @@ export default function Hero() {
 
         <h1>
           Next-Generation<br />
-          <em>Battery</em> Technology
+          <em className={`${styles.rotatingWord} ${fading ? styles.fadeOut : styles.fadeIn}`}>
+            {ROTATING_WORDS[wordIndex]}
+          </em>
         </h1>
 
         <p className={styles.sub}>

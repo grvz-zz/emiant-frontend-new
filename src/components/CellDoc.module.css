@@ -1,0 +1,204 @@
+.section {
+  background: var(--bg);
+  padding: 96px 48px;
+  display: flex;
+  flex-direction: column;
+  gap: 64px;
+  border-top: 1px solid var(--border2);
+  border-bottom: 1px solid var(--border2);
+}
+
+/* ── Hero ── */
+.heroGrid {
+  display: grid;
+  grid-template-columns: 1fr 1.2fr;
+  gap: 56px;
+  align-items: center;
+}
+
+.hero { max-width: 480px; }
+
+.heroBadge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  color: var(--green);
+  margin-bottom: 24px;
+}
+
+.heroDot {
+  width: 7px; height: 7px;
+  background: var(--green);
+  border-radius: 50%;
+  animation: heroPulse 1.6s ease-in-out infinite;
+}
+
+@keyframes heroPulse {
+  0%,100% { opacity:1; box-shadow: 0 0 8px var(--green); }
+  50% { opacity:0.3; box-shadow: none; }
+}
+
+.heroTitle {
+  font-family: var(--font-display);
+  font-size: clamp(32px, 4vw, 54px);
+  font-weight: 800;
+  color: #fff;
+  line-height: 1.05;
+  letter-spacing: -0.025em;
+  margin-bottom: 22px;
+}
+
+.heroDesc {
+  font-size: 15px;
+  color: var(--text2);
+  line-height: 1.75;
+  font-weight: 300;
+}
+
+.heroImg img {
+  width: 100%;
+  display: block;
+}
+
+/* ── Feature grid ── */
+.featureGrid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+}
+
+.featCard {
+  background: var(--card);
+  border: 1px solid var(--border2);
+  border-radius: var(--radius-lg);
+  padding: 28px;
+  transition: border-color 0.25s, background 0.25s, transform 0.3s cubic-bezier(0.22,1,0.36,1);
+}
+
+.featCard:hover {
+  border-color: rgba(17, 240, 70, 0.4);
+  background: var(--card2);
+  transform: translateY(-4px);
+}
+
+.featIcon {
+  width: 42px;
+  height: 42px;
+  min-width: 42px;
+  min-height: 42px;
+  flex-shrink: 0;
+  background: var(--green-muted);
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--green);
+  margin-bottom: 20px;
+}
+
+.featIcon svg { width: 20px; height: 20px; flex-shrink: 0; }
+
+.featTitle {
+  font-family: var(--font-display);
+  font-size: 17px;
+  font-weight: 700;
+  color: #fff;
+  margin-bottom: 10px;
+  line-height: 1.3;
+}
+
+.featDesc {
+  font-size: 13px;
+  color: var(--text2);
+  line-height: 1.7;
+  font-weight: 300;
+}
+
+/* ── Connect Any Device ── */
+.devicesSection {
+  display: flex;
+  flex-direction: column;
+  gap: 28px;
+}
+
+.featuresSection {
+  display: flex;
+  flex-direction: column;
+  gap: 28px;
+}
+
+.devicesLabel {
+  font-family: var(--font-display);
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  color: var(--green);
+}
+
+.devicesGrid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px;
+}
+
+.deviceCard {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  background: var(--card);
+  border: 1px solid var(--border2);
+  border-radius: var(--radius-lg);
+  padding: 24px;
+  transition: border-color 0.25s, background 0.25s, transform 0.3s cubic-bezier(0.22,1,0.36,1);
+}
+
+.deviceCard:hover {
+  border-color: rgba(17, 240, 70, 0.4);
+  background: var(--card2);
+  transform: translateY(-4px);
+}
+
+.deviceIcon {
+  width: 42px;
+  height: 42px;
+  min-width: 42px;
+  min-height: 42px;
+  flex-shrink: 0;
+  background: var(--green-muted);
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--green);
+}
+
+.deviceIcon svg { width: 20px; height: 20px; flex-shrink: 0; }
+
+.deviceTitle {
+  font-family: var(--font-display);
+  font-size: 16px;
+  font-weight: 700;
+  color: #fff;
+  line-height: 1.3;
+}
+
+.deviceDesc {
+  font-size: 13px;
+  color: var(--text2);
+  line-height: 1.6;
+  font-weight: 300;
+}
+
+@media (max-width: 900px) {
+  .section { padding: 64px 20px; }
+  .heroGrid { grid-template-columns: 1fr; gap: 40px; }
+  .featureGrid { grid-template-columns: 1fr; }
+  .devicesGrid { grid-template-columns: repeat(2, 1fr); }
+}
+
+@media (max-width: 480px) {
+  .devicesGrid { grid-template-columns: 1fr; }
+}

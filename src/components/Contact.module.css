@@ -103,6 +103,7 @@
   display: flex;
   align-items: center;
   gap: 9px;
+  margin-bottom: 12px;
 }
 
 .infoTitle svg { color: var(--green); }
@@ -112,6 +113,13 @@
   color: var(--text2);
   line-height: 1.85;
   font-weight: 300;
+}
+
+.addressRow {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 24px;
+  margin-bottom: 12px;
 }
 
 .infoBlock a {
@@ -164,4 +172,5 @@
 @media (max-width: 480px) {
   .section { padding: 64px 20px; }
   .row { grid-template-columns: 1fr; }
+  .addressRow { grid-template-columns: 1fr; gap: 16px; }
 }

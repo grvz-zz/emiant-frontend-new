@@ -18,10 +18,11 @@ const CARDS = [
   },
   {
     id: 'SYS-02',
-    name: 'BMD (Monitoring)',
-    desc: 'High-fidelity Battery Monitoring Diagnostics. Real-time telemetry at the cellular level.',
+    name: 'Battery Management System',
+    desc: 'High-fidelity Battery Monitoring Diagnostics combined with intelligent control. Real-time telemetry at the cellular level with predictive algorithms for optimized lifecycle and safety.',
     badge: 'LIVE',
     scanRate: '1000Hz',
+    features: ['Active Balancing', 'AI Predictive Maintenance'],
     icon: (
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
         <polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/>
@@ -31,10 +32,10 @@ const CARDS = [
   },
   {
     id: 'SYS-03',
-    name: 'BMS (Control)',
-    desc: 'Intelligent Battery Management System. Predictive algorithms for optimized lifecycle and safety.',
-    features: ['Active Balancing', 'AI Predictive Maintenance'],
+    name: 'CellDoc',
+    desc: 'Comprehensive cell diagnostics and health documentation platform for tracking performance and degradation over the battery lifecycle.',
     badge: null,
+    features: ['Analytics', 'Real-Time Insights'],
     icon: (
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
         <rect x="2" y="2" width="20" height="20" rx="4"/>
@@ -42,7 +43,7 @@ const CARDS = [
         <path d="M12 2v4M12 18v4M2 12h4M18 12h4"/>
       </svg>
     ),
-    href: '#bmdbms',
+    href: '#celldoc',
   },
 ]
 
@@ -51,52 +52,59 @@ export default function CoreTechStack() {
   const gridRef   = useStaggerAnimation(100)
 
   return (
-    <section className={styles.section} id="products">
+    <section className={styles.section} id="technology">
       <div className={`reveal ${styles.header}`} ref={headerRef}>
         <h2 className={styles.title}>Core Technology Stack</h2>
         <div className={styles.titleLine} />
       </div>
 
       <div className={styles.grid} ref={gridRef}>
-        {CARDS.map((card, i) => (
-          <a key={card.id} href={card.href} className={`${styles.card} reveal ${i === 1 ? styles.cardActive : ''}`}>
-            <div className={styles.cardTop}>
-              <div className={styles.iconWrap}>{card.icon}</div>
-              {card.badge ? (
-                <span className={styles.liveBadge}>
-                  <span className={styles.liveDot} />
-                  {card.badge}
-                </span>
-              ) : (
-                <span className={styles.sysId}>{card.id}</span>
-              )}
-            </div>
-
-            <h3 className={styles.cardName}>{card.name}</h3>
-            <p className={styles.cardDesc}>{card.desc}</p>
-
-            {card.scanRate && (
-              <div className={styles.scanBlock}>
-                <div className={styles.scanDivider} />
-                <div className={styles.scanRow}>
-                  <span className={styles.scanLabel}>Scan Rate</span>
-                  <span className={styles.scanValue}>{card.scanRate}</span>
-                </div>
-                <div className={styles.scanBar}>
-                  <div className={styles.scanFill} />
-                </div>
+        {CARDS.map((card, i) => {
+          const Tag = card.href ? 'a' : 'div'
+          return (
+            <Tag
+              key={card.id}
+              {...(card.href ? { href: card.href } : {})}
+              className={`${styles.card} reveal ${i === 1 ? styles.cardActive : ''} ${!card.href ? styles.cardDisabled : ''}`}
+            >
+              <div className={styles.cardTop}>
+                <div className={styles.iconWrap}>{card.icon}</div>
+                {card.badge ? (
+                  <span className={styles.liveBadge}>
+                    <span className={styles.liveDot} />
+                    {card.badge}
+                  </span>
+                ) : (
+                  <span className={styles.sysId}>{card.id}</span>
+                )}
               </div>
-            )}
 
-            {card.features && (
-              <ul className={styles.features}>
-                {card.features.map(f => (
-                  <li key={f}>{f}</li>
-                ))}
-              </ul>
-            )}
-          </a>
-        ))}
+              <h3 className={styles.cardName}>{card.name}</h3>
+              <p className={styles.cardDesc}>{card.desc}</p>
+
+              {card.scanRate && (
+                <div className={styles.scanBlock}>
+                  <div className={styles.scanDivider} />
+                  <div className={styles.scanRow}>
+                    <span className={styles.scanLabel}>Scan Rate</span>
+                    <span className={styles.scanValue}>{card.scanRate}</span>
+                  </div>
+                  <div className={styles.scanBar}>
+                    <div className={styles.scanFill} />
+                  </div>
+                </div>
+              )}
+
+              {card.features && (
+                <ul className={styles.features}>
+                  {card.features.map(f => (
+                    <li key={f}>{f}</li>
+                  ))}
+                </ul>
+              )}
+            </Tag>
+          )
+        })}
       </div>
     </section>
   )

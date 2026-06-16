@@ -89,6 +89,23 @@
   color: var(--green);
 }
 
+.rotatingWord {
+  display: inline-block;
+  transition: opacity 480ms ease, filter 480ms ease;
+  opacity: 1;
+  filter: blur(0px);
+}
+
+.rotatingWord.fadeOut {
+  opacity: 0;
+  filter: blur(8px);
+}
+
+.rotatingWord.fadeIn {
+  opacity: 1;
+  filter: blur(0px);
+}
+
 .sub {
   font-size: 17px;
   color: var(--text2);

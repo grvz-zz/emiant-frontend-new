@@ -84,8 +84,16 @@ export default function Contact() {
         {/* INFO */}
         <div className={`reveal-right ${styles.info}`} ref={infoRef}>
           <div className={styles.infoBlock}>
-            <h3 className={styles.infoTitle}><LocationIcon /> Headquarters</h3>
-            <p>Emiant Innovations Pvt Ltd<br/>59-8-38, Turangi, Jagannaickpur<br/>Kakinada(Urban), East-Godavari<br/>Andhra Pradesh - 533002</p>
+            <div className={styles.addressRow}>
+              <div>
+                <h3 className={styles.infoTitle}><LocationIcon /> Office 1</h3>
+                <p>Emiant Innovations Pvt Ltd<br/>59-8-38, Turangi, Jagannaickpur<br/>Kakinada(Urban), East-Godavari<br/>Andhra Pradesh - 533002</p>
+              </div>
+              <div>
+                <h3 className={styles.infoTitle}><LocationIcon /> Office 2</h3>
+                <p>No. 37, 2nd Floor, Samanvay Status 2<br/>Atladara, Vadodara - 390012<br/>Gujarat<br/>Landmark: Near Jagdish Farsan</p>
+              </div>
+            </div>
             <a
                 href="https://maps.app.goo.gl/GeZQkTWMkEMurXow9"
                 target="_blank"
