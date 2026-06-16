@@ -113,9 +113,9 @@ export default function Contact() {
           <div className={styles.infoBlock}>
             <h3 className={styles.infoTitle}><PhoneIcon /> Direct Contact</h3>
             <p>
-              <a href="mailto:partnerships@emiant.com">partnerships@emiant.com</a>
+              <a href="mailto:info@emiant.com">info@emiant.com</a>
               <br/>
-              <a href="tel:93067 31085">+91 93067 31085</a>
+              {/* <a href="tel:93067 31085">+91 93067 31085</a> */}
             </p>
           </div>
         </div>
