@@ -22,6 +22,16 @@ const CARDS = [
     body: 'Powering critical medical applications where reliability, safety, and precision are non-negotiable.',
     img: '/medical.png',
   },
+  {
+    title: 'Drones \& Aerospace',
+    body: 'Enable longer flight times and heavier payloads for commercial and defense applications.',
+    img: '/drones.png',
+  },
+  {
+    title: 'Industrial \& Heavy Machinery',
+    body: 'Power robust, high-demand equipment with reliable and safe next-generation batteries.',
+    img: '/industrial.png',
+  },
 ]
 
 export default function Industries() {
