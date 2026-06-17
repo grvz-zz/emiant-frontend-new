@@ -78,7 +78,7 @@ export default function Siphotherm() {
           </div>
         </div>
         <div className={styles.heroImg}>
-          <img src="/siphotherm.jpeg" alt="Siphotherm" />
+          <img src="/siphotherm.png" alt="Siphotherm" />
         </div>
       </div>
 

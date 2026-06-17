@@ -90,20 +90,20 @@
 }
 
 .rotatingWord {
-  display: inline-block;
-  transition: opacity 480ms ease, filter 480ms ease;
-  opacity: 1;
-  filter: blur(0px);
+  display: inline;
 }
 
-.rotatingWord.fadeOut {
-  opacity: 0;
-  filter: blur(8px);
+.cursor {
+  display: inline;
+  color: var(--green);
+  font-weight: 300;
+  margin-left: 2px;
+  animation: blink 0.7s step-end infinite;
 }
 
-.rotatingWord.fadeIn {
-  opacity: 1;
-  filter: blur(0px);
+@keyframes blink {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0; }
 }
 
 .sub {

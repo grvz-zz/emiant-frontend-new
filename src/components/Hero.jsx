@@ -12,8 +12,9 @@ const ROTATING_WORDS = [
 export default function Hero() {
   const contentRef = useRef(null)
   const bgRef = useParallax(0.25)
+  const [displayText, setDisplayText] = useState('')
   const [wordIndex, setWordIndex] = useState(0)
-  const [fading, setFading] = useState(false)
+  const [isDeleting, setIsDeleting] = useState(false)
 
   useEffect(() => {
     // GSAP stagger entrance on mount
@@ -50,17 +51,33 @@ export default function Hero() {
     loadGSAP()
   }, [])
 
-  // Cycle through the rotating words with a blur cross-fade
+  // Typewriter effect
   useEffect(() => {
-    const interval = setInterval(() => {
-      setFading(true)
-      setTimeout(() => {
+    const word = ROTATING_WORDS[wordIndex]
+    const typeSpeed = isDeleting ? 40 : 70
+    const pauseBeforeDelete = 1800
+    const pauseBeforeType = 300
+
+    if (!isDeleting && displayText === word) {
+      const t = setTimeout(() => setIsDeleting(true), pauseBeforeDelete)
+      return () => clearTimeout(t)
+    }
+    if (isDeleting && displayText === '') {
+      const t = setTimeout(() => {
+        setIsDeleting(false)
         setWordIndex(i => (i + 1) % ROTATING_WORDS.length)
-        setFading(false)
-      }, 480)
-    }, 2400)
-    return () => clearInterval(interval)
-  }, [])
+      }, pauseBeforeType)
+      return () => clearTimeout(t)
+    }
+
+    const t = setTimeout(() => {
+      setDisplayText(isDeleting
+        ? word.slice(0, displayText.length - 1)
+        : word.slice(0, displayText.length + 1)
+      )
+    }, typeSpeed)
+    return () => clearTimeout(t)
+  }, [displayText, isDeleting, wordIndex])
 
   return (
     <section className={styles.hero} id="top">
@@ -76,8 +93,11 @@ export default function Hero() {
 
         <h1>
           Next-Generation<br />
-          <em className={`${styles.rotatingWord} ${fading ? styles.fadeOut : styles.fadeIn}`}>
-            {ROTATING_WORDS[wordIndex]}
+          <em className={styles.rotatingWord}>
+            {displayText.slice(0, -1)}
+            <span style={{ whiteSpace: 'nowrap' }}>
+              {displayText.slice(-1)}<span className={styles.cursor}>|</span>
+            </span>
           </em>
         </h1>
 

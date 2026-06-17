@@ -13,8 +13,8 @@ export default function CareersBanner() {
             Help Us Engineer<br />the Future
           </h2>
           <p className={styles.body}>
-            We are actively seeking exceptional electrochemists, materials
-            scientists, and mechanical engineers to join our San Jose
+            We are actively seeking exceptional material scientists,
+            mechanical engineers and web developers to join our India
             headquarters. If you are passionate about scalable clean
             technology, we want to hear from you.
           </p>

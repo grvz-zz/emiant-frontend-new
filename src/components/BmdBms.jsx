@@ -73,7 +73,7 @@ export default function BmdBms() {
           SYSTEMS ONLINE
         </div>
         <h2 className={styles.heroTitle}>
-          Precision Battery Control Architecture
+          BMS: Advanced Battery Management System
         </h2>
         <p className={styles.heroDesc}>
           Next-generation Intelligent Battery Monitoring (BMD) and Advanced Battery
@@ -85,12 +85,6 @@ export default function BmdBms() {
 
       {/* ── BMD ── */}
       <div className={styles.subsection}>
-        <div className={styles.subsectionLabel}>
-          <span className={styles.labelGreen}>BMD</span>
-          <span className={styles.labelSub}>Intelligent Battery Monitoring</span>
-          <div className={styles.labelLine} />
-        </div>
-
         <div className={`${styles.bmdGrid} stagger`} ref={bmdRef}>
           {BMD_FEATURES.map(({ title, desc, icon, wide }) => (
             <div key={title} className={`${styles.featCard} ${wide ? styles.featCardWide : ''} reveal`}>
@@ -113,12 +107,6 @@ export default function BmdBms() {
 
       {/* ── BMS ── */}
       <div className={styles.subsection}>
-        <div className={styles.subsectionLabel}>
-          <span className={styles.labelGreen}>BMS</span>
-          <span className={styles.labelSub}>Advanced Battery Control System</span>
-          <div className={styles.labelLine} />
-        </div>
-
         <div className={`reveal ${styles.bmsGrid}`} ref={bmsRef}>
           {/* Master Controller */}
           <div className={`${styles.bmsCard} ${styles.bmsCardActive}`}>
