@@ -1,4 +1,4 @@
-import { Fragment, useEffect, useState } from 'react'
+import { Fragment, useEffect, useRef, useState } from 'react'
 import { Link, NavLink, useLocation, useNavigate } from 'react-router-dom'
 import styles from './Navbar.module.css'
 
@@ -16,7 +16,6 @@ const PRODUCT_LINKS = [
   { label: 'Cell Doc',   href: '/#celldoc' },
 ]
 
-// Scrolls to a hash anchor, retrying until the element exists in the DOM
 function scrollToHash(hash) {
   const id = hash.replace('#', '')
   const attempt = (tries = 0) => {
@@ -31,11 +30,12 @@ function scrollToHash(hash) {
 }
 
 export default function Navbar() {
-  const [scrolled, setScrolled] = useState(false)
-  const [menuOpen, setMenuOpen] = useState(false)
+  const [scrolled, setScrolled]       = useState(false)
+  const [menuOpen, setMenuOpen]       = useState(false)
   const [productsOpen, setProductsOpen] = useState(false)
-  const { pathname, hash } = useLocation()
-  const navigate = useNavigate()
+  const { pathname, hash }            = useLocation()
+  const navigate                      = useNavigate()
+  const dropdownRef                   = useRef(null)
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 20)
@@ -46,23 +46,32 @@ export default function Navbar() {
   // Close menu on route change
   useEffect(() => setMenuOpen(false), [pathname])
 
-  // After any navigation, if there's a hash, scroll to it
+  // After navigation, scroll to hash
   useEffect(() => {
     if (hash) scrollToHash(hash)
   }, [pathname, hash])
+
+  // Close dropdown on outside click
+  useEffect(() => {
+    const handleOutsideClick = (e) => {
+      if (dropdownRef.current && !dropdownRef.current.contains(e.target)) {
+        setProductsOpen(false)
+      }
+    }
+    document.addEventListener('mousedown', handleOutsideClick)
+    return () => document.removeEventListener('mousedown', handleOutsideClick)
+  }, [])
 
   const handleHashLink = (e, href) => {
     e.preventDefault()
     setMenuOpen(false)
     setProductsOpen(false)
-    const [path, hash] = href.split('#')
+    const [path, hashPart] = href.split('#')
     const targetPath = path || '/'
     if (pathname === targetPath || pathname === '/') {
-      // Already on the right page — just scroll
-      scrollToHash('#' + hash)
+      scrollToHash('#' + hashPart)
     } else {
-      // Navigate to homepage first, hash scroll happens via the useEffect above
-      navigate(targetPath + '#' + hash)
+      navigate(targetPath + '#' + hashPart)
     }
   }
 
@@ -92,12 +101,7 @@ export default function Navbar() {
               )}
             </li>
             {idx === 1 && (
-              <li
-                key="products"
-                className={styles.dropdown}
-                onMouseEnter={() => setProductsOpen(true)}
-                onMouseLeave={() => setProductsOpen(false)}
-              >
+              <li key="products" className={styles.dropdown} ref={dropdownRef}>
                 <button
                   type="button"
                   className={styles.dropdownToggle}
@@ -110,7 +114,9 @@ export default function Navbar() {
                   {PRODUCT_LINKS.map(({ label, href }) => (
                     <li key={label}>
                       {href ? (
-                        <a href={href} onClick={(e) => handleHashLink(e, href)}>{label}</a>
+                        <a href={href} onClick={(e) => handleHashLink(e, href)}>
+                          {label}
+                        </a>
                       ) : (
                         <span className={styles.dropdownDisabled}>{label}</span>
                       )}

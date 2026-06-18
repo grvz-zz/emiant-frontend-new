@@ -1,3 +1,4 @@
+import { useState } from 'react'
 import { useScrollAnimation, useStaggerAnimation } from '../hooks/useScrollAnimation'
 import styles from './BmdBms.module.css'
 
@@ -52,131 +53,157 @@ const COMMS = [
 ]
 
 const SYSTEM_SPECS = [
-  { param: 'Voltage Range', bmd: '0 – 80V (Per Module)',     bms: 'Up to 1500V (System)' },
-  { param: 'Accuracy',      bmd: '±1 mV',                    bms: 'System Level Aggregation' },
-  { param: 'Isolation',     bmd: 'Galvanic (IsoSPI)',         bms: 'High Voltage Barrier' },
+  { param: 'Voltage Range', bmd: '0 – 80V (Per Module)',  bms: 'Up to 1500V (System)' },
+  { param: 'Accuracy',      bmd: '±1 mV',                 bms: 'System Level Aggregation' },
+  { param: 'Isolation',     bmd: 'Galvanic (IsoSPI)',      bms: 'High Voltage Barrier' },
 ]
 
 export default function BmdBms() {
-  const heroRef   = useScrollAnimation({ threshold: 0.1 })
-  const bmdRef    = useStaggerAnimation(80)
-  const bmsRef    = useScrollAnimation({ threshold: 0.1 })
-  const specsRef  = useScrollAnimation({ threshold: 0.1 })
+  const [expanded, setExpanded] = useState(false)
+  const heroRef  = useScrollAnimation({ threshold: 0.1 })
 
   return (
     <section className={styles.section} id="bmdbms">
 
       {/* ── HERO ── */}
-      <div className={`reveal ${styles.hero}`} ref={heroRef}>
-        <div className={styles.heroBadge}>
-          <span className={styles.heroDot} />
-          SYSTEMS ONLINE
+      <div className={`reveal ${styles.heroGrid}`} ref={heroRef}>
+        <div className={styles.heroImg}>
+          <img src="/bms.png" alt="BMS Board" onError={e => { e.target.style.display = 'none' }} />
         </div>
-        <h2 className={styles.heroTitle}>
-          BMS: Advanced Battery Management System
-        </h2>
-        <p className={styles.heroDesc}>
-          Next-generation Intelligent Battery Monitoring (BMD) and Advanced Battery
-          Control (BMS) for high-frequency applications.
-        </p>
+        <div className={styles.hero}>
+          <div className={styles.heroBadge}>
+            <span className={styles.heroDot} />
+            SYSTEMS ONLINE
+          </div>
+          <h2 className={styles.heroTitle}>
+            BMS: Advanced Battery Management System
+          </h2>
+          <p className={styles.heroDesc}>
+            Next-generation Intelligent Battery Monitoring (BMD) and Advanced Battery
+            Control (BMS) for high-frequency applications.
+          </p>
+          <div className={styles.heroActions}>
+            <button className="btn-primary">View Datasheet</button>
+            <button
+              className={`btn-outline ${styles.viewMoreBtn}`}
+              onClick={() => setExpanded(v => !v)}
+            >
+              {expanded ? 'View Less' : 'View More'}
+              <svg
+                viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"
+                className={`${styles.chevron} ${expanded ? styles.chevronUp : ''}`}
+              >
+                <polyline points="6 9 12 15 18 9"/>
+              </svg>
+            </button>
+          </div>
+        </div>
       </div>
 
-      <div className={styles.divider} />
+      {/* ── EXPANDABLE CONTENT ── */}
+      <div className={`${styles.expandable} ${expanded ? styles.expandableOpen : ''}`}>
+        <div className={styles.expandableInner}>
 
-      {/* ── BMD ── */}
-      <div className={styles.subsection}>
-        <div className={`${styles.bmdGrid} stagger`} ref={bmdRef}>
-          {BMD_FEATURES.map(({ title, desc, icon, wide }) => (
-            <div key={title} className={`${styles.featCard} ${wide ? styles.featCardWide : ''} reveal`}>
-              <div className={styles.featIcon}>{icon}</div>
-              <h4 className={styles.featTitle}>{title}</h4>
-              <p className={styles.featDesc}>{desc}</p>
-              {wide && (
-                <div className={styles.chartMini}>
-                  {[30, 45, 35, 55, 42, 60, 50, 68, 58, 72, 65, 80].map((h, i) => (
-                    <div key={i} className={styles.chartBar} style={{ height: `${h}%` }} />
-                  ))}
-                </div>
-              )}
-            </div>
-          ))}
-        </div>
-      </div>
+          <div className={styles.divider} />
 
-      <div className={styles.divider} />
-
-      {/* ── BMS ── */}
-      <div className={styles.subsection}>
-        <div className={`reveal ${styles.bmsGrid}`} ref={bmsRef}>
-          {/* Master Controller */}
-          <div className={`${styles.bmsCard} ${styles.bmsCardActive}`}>
-            <div className={styles.bmsCardHeader}>
-              <span className={styles.bmsCardTitle}>Master Controller</span>
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" style={{width:18,height:18,color:'var(--green)'}}>
-                <rect x="2" y="2" width="20" height="20" rx="4"/>
-                <circle cx="12" cy="12" r="4"/>
-                <path d="M12 2v4M12 18v4M2 12h4M18 12h4"/>
-              </svg>
-            </div>
-            <ul className={styles.bmsList}>
-              <li>
-                <strong>High-Voltage Handling</strong>
-                <span>Safely orchestrates string voltages up to 1500V DC.</span>
-              </li>
-              <li>
-                <strong>Contactor Control</strong>
-                <span>Precision timing for pre-charge and main contactor sequencing.</span>
-              </li>
-            </ul>
-          </div>
-
-          {/* Slave Node */}
-          <div className={styles.bmsCard}>
-            <div className={styles.bmsCardLabel}>SLAVE NODE ALPHA</div>
-            <div className={styles.balanceRing}>
-              <svg viewBox="0 0 80 80">
-                <circle cx="40" cy="40" r="32" fill="none" stroke="rgba(57,255,110,0.1)" strokeWidth="6"/>
-                <circle cx="40" cy="40" r="32" fill="none" stroke="var(--green)" strokeWidth="6"
-                  strokeDasharray="201" strokeDashoffset="20"
-                  strokeLinecap="round" transform="rotate(-90 40 40)"/>
-                <text x="40" y="45" textAnchor="middle" fill="var(--green)"
-                  fontSize="16" fontFamily="Syne,sans-serif" fontWeight="700">98%</text>
-              </svg>
-            </div>
-            <div className={styles.balanceLabel}>Active Cell Balancing</div>
-          </div>
-
-          {/* Communications */}
-          <div className={styles.bmsCard}>
-            <div className={styles.bmsCardLabel}>COMMUNICATIONS</div>
-            <div className={styles.commsList}>
-              {COMMS.map(({ label, active }) => (
-                <div key={label} className={styles.commsRow}>
-                  <span className={styles.commsLabel}>{label}</span>
-                  <span className={`${styles.commsIndicator} ${active ? styles.commsActive : styles.commsIdle}`} />
+          {/* ── BMD FEATURES ── */}
+          <div className={styles.subsection}>
+            <div className={styles.bmdGrid}>
+              {BMD_FEATURES.map(({ title, desc, icon, wide }) => (
+                <div key={title} className={`${styles.featCard} ${wide ? styles.featCardWide : ''}`}>
+                  <div className={styles.featIcon}>{icon}</div>
+                  <h4 className={styles.featTitle}>{title}</h4>
+                  <p className={styles.featDesc}>{desc}</p>
+                  {wide && (
+                    <div className={styles.chartMini}>
+                      {[30, 45, 35, 55, 42, 60, 50, 68, 58, 72, 65, 80].map((h, i) => (
+                        <div key={i} className={styles.chartBar} style={{ height: `${h}%` }} />
+                      ))}
+                    </div>
+                  )}
                 </div>
               ))}
             </div>
           </div>
-        </div>
-      </div>
 
-      {/* ── System Specs ── */}
-      <div className={`reveal ${styles.specsSection}`} ref={specsRef}>
-        <h3 className={styles.specsTitle}>System Specifications</h3>
-        <div className={styles.specsTable}>
-          <div className={styles.specsHead}>
-            <span>Parameter</span>
-            <span className={styles.headBmd}>BMD</span>
-            <span className={styles.headBms}>BMS</span>
-          </div>
-          {SYSTEM_SPECS.map(({ param, bmd, bms }) => (
-            <div key={param} className={styles.specsRow}>
-              <span className={styles.specsParam}>{param}</span>
-              <span className={styles.specsBmd}>{bmd}</span>
-              <span className={styles.specsBms}>{bms}</span>
+          <div className={styles.divider} />
+
+          {/* ── BMS TILES ── */}
+          <div className={styles.subsection}>
+            <div className={styles.bmsGrid}>
+              {/* Master Controller */}
+              <div className={`${styles.bmsCard} ${styles.bmsCardActive}`}>
+                <div className={styles.bmsCardHeader}>
+                  <span className={styles.bmsCardTitle}>Master Controller</span>
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" style={{width:18,height:18,color:'var(--green)'}}>
+                    <rect x="2" y="2" width="20" height="20" rx="4"/>
+                    <circle cx="12" cy="12" r="4"/>
+                    <path d="M12 2v4M12 18v4M2 12h4M18 12h4"/>
+                  </svg>
+                </div>
+                <ul className={styles.bmsList}>
+                  <li>
+                    <strong>High-Voltage Handling</strong>
+                    <span>Safely orchestrates string voltages up to 1500V DC.</span>
+                  </li>
+                  <li>
+                    <strong>Contactor Control</strong>
+                    <span>Precision timing for pre-charge and main contactor sequencing.</span>
+                  </li>
+                </ul>
+              </div>
+
+              {/* Slave Node */}
+              <div className={styles.bmsCard}>
+                <div className={styles.bmsCardLabel}>SLAVE NODE ALPHA</div>
+                <div className={styles.balanceRing}>
+                  <svg viewBox="0 0 80 80">
+                    <circle cx="40" cy="40" r="32" fill="none" stroke="rgba(57,255,110,0.1)" strokeWidth="6"/>
+                    <circle cx="40" cy="40" r="32" fill="none" stroke="var(--green)" strokeWidth="6"
+                      strokeDasharray="201" strokeDashoffset="20"
+                      strokeLinecap="round" transform="rotate(-90 40 40)"/>
+                    <text x="40" y="45" textAnchor="middle" fill="var(--green)"
+                      fontSize="16" fontFamily="Syne,sans-serif" fontWeight="700">98%</text>
+                  </svg>
+                </div>
+                <div className={styles.balanceLabel}>Active Cell Balancing</div>
+              </div>
+
+              {/* Communications */}
+              <div className={styles.bmsCard}>
+                <div className={styles.bmsCardLabel}>COMMUNICATIONS</div>
+                <div className={styles.commsList}>
+                  {COMMS.map(({ label, active }) => (
+                    <div key={label} className={styles.commsRow}>
+                      <span className={styles.commsLabel}>{label}</span>
+                      <span className={`${styles.commsIndicator} ${active ? styles.commsActive : styles.commsIdle}`} />
+                    </div>
+                  ))}
+                </div>
+              </div>
             </div>
-          ))}
+          </div>
+
+          {/* ── System Specs ── */}
+          <div className={styles.specsSection}>
+            <h3 className={styles.specsTitle}>System Specifications</h3>
+            <div className={styles.specsTable}>
+              <div className={styles.specsHead}>
+                <span>Parameter</span>
+                <span className={styles.headBmd}>BMD</span>
+                <span className={styles.headBms}>BMS</span>
+              </div>
+              {SYSTEM_SPECS.map(({ param, bmd, bms }) => (
+                <div key={param} className={styles.specsRow}>
+                  <span className={styles.specsParam}>{param}</span>
+                  <span className={styles.specsBmd}>{bmd}</span>
+                  <span className={styles.specsBms}>{bms}</span>
+                </div>
+              ))}
+            </div>
+          </div>
+
         </div>
       </div>
 

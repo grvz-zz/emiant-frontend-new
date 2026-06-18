@@ -274,3 +274,136 @@
   .advantageGrid { grid-template-columns: 1fr; }
   .specsGrid { grid-template-columns: 1fr; }
 }
+/* ── COMPARISON TABLE ── */
+.comparisonWrap {
+  overflow-x: auto;
+}
+
+.comparisonTable {
+  width: 100%;
+  border: 1px solid var(--border2);
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+}
+
+/* Header row */
+.compHead {
+  display: grid;
+  grid-template-columns: 2fr 1.4fr 1.2fr 1.2fr;
+  background: rgba(17, 240, 70, 0.06);
+  border-bottom: 1px solid var(--border2);
+  padding: 0;
+}
+
+.compColAttr,
+.compCol {
+  padding: 14px 20px;
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--text2);
+}
+
+.compColSipho {
+  color: var(--green);
+}
+
+/* Data rows */
+.compRow {
+  display: grid;
+  grid-template-columns: 2fr 1.4fr 1.2fr 1.2fr;
+  border-bottom: 1px solid var(--border2);
+  transition: background 0.2s;
+}
+
+.compRow:last-child {
+  border-bottom: none;
+}
+
+.compRow:hover {
+  background: rgba(255,255,255,0.02);
+}
+
+.compRowHighlight {
+  background: rgba(17, 240, 70, 0.04);
+}
+
+.compRowHighlight:hover {
+  background: rgba(17, 240, 70, 0.07);
+}
+
+.compCellAttr,
+.compCell {
+  padding: 16px 20px;
+  font-size: 13px;
+  color: var(--text2);
+  line-height: 1.6;
+  border-right: 1px solid var(--border2);
+}
+
+.compCellAttr {
+  font-weight: 500;
+  color: #fff;
+}
+
+.compCell:last-child {
+  border-right: none;
+}
+
+.compCellSipho {
+  color: var(--green);
+  font-weight: 500;
+}
+
+@media (max-width: 768px) {
+  .compHead,
+  .compRow {
+    grid-template-columns: 1.4fr 1fr 1fr 1fr;
+  }
+  .compColAttr,
+  .compCol,
+  .compCellAttr,
+  .compCell {
+    padding: 12px 12px;
+    font-size: 12px;
+  }
+}
+
+/* ── View More button ── */
+.viewMoreBtn {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.chevron {
+  width: 14px;
+  height: 14px;
+  transition: transform 0.3s ease;
+  flex-shrink: 0;
+}
+
+.chevronUp {
+  transform: rotate(180deg);
+}
+
+/* ── Expandable section ── */
+.expandable {
+  display: grid;
+  grid-template-rows: 0fr;
+  transition: grid-template-rows 0.5s cubic-bezier(0.22, 1, 0.36, 1);
+  overflow: hidden;
+}
+
+.expandableOpen {
+  grid-template-rows: 1fr;
+}
+
+.expandableInner {
+  min-height: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 64px;
+  overflow: hidden;
+}
