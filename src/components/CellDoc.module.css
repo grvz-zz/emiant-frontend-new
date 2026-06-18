@@ -14,6 +14,7 @@
   grid-template-columns: 1fr 1.2fr;
   gap: 56px;
   align-items: center;
+  min-height: 75vh;
 }
 
 .hero { max-width: 480px; }
@@ -201,4 +202,50 @@
 
 @media (max-width: 480px) {
   .devicesGrid { grid-template-columns: 1fr; }
+}
+/* ── Hero actions ── */
+.heroActions {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  flex-wrap: wrap;
+  margin-top: 28px;
+}
+
+/* ── View More button ── */
+.viewMoreBtn {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.chevron {
+  width: 14px;
+  height: 14px;
+  transition: transform 0.3s ease;
+  flex-shrink: 0;
+}
+
+.chevronUp {
+  transform: rotate(180deg);
+}
+
+/* ── Expandable section ── */
+.expandable {
+  display: grid;
+  grid-template-rows: 0fr;
+  transition: grid-template-rows 0.5s cubic-bezier(0.22, 1, 0.36, 1);
+  overflow: hidden;
+}
+
+.expandableOpen {
+  grid-template-rows: 1fr;
+}
+
+.expandableInner {
+  min-height: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 64px;
+  overflow: hidden;
 }

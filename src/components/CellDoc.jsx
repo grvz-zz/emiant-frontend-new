@@ -1,3 +1,4 @@
+import { useState } from 'react'
 import { useScrollAnimation, useStaggerAnimation } from '../hooks/useScrollAnimation'
 import styles from './CellDoc.module.css'
 
@@ -69,8 +70,8 @@ const DEVICES = [
     ),
   },
   {
-    title: 'BESS',
-    desc: 'Battery Energy Storage Systems.',
+    title: 'Battery Energy Storage Systems (BESS)',
+    desc: 'Enhance grid stability and renewable energy integration with high-density, durable storage.',
     icon: (
       <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
         <rect x="2" y="7" width="20" height="14" rx="2"/>
@@ -83,59 +84,86 @@ const DEVICES = [
 ]
 
 export default function CellDoc() {
-  const heroRef = useScrollAnimation({ threshold: 0.1 })
-  const featRef = useStaggerAnimation(90)
+  const [expanded, setExpanded] = useState(false)
+  const heroRef    = useScrollAnimation({ threshold: 0.1 })
+  const featRef    = useStaggerAnimation(90)
   const devicesRef = useStaggerAnimation(80)
 
   return (
     <section className={styles.section} id="celldoc">
+
+      {/* ── HERO ── */}
       <div className={`reveal ${styles.heroGrid}`} ref={heroRef}>
         <div className={styles.hero}>
           <div className={styles.heroBadge}>
             <span className={styles.heroDot} />
             SOFTWARE PLATFORM
           </div>
-          <h2 className={styles.heroTitle}>
-            CellDoc
-          </h2>
+          <h2 className={styles.heroTitle}>CellDoc</h2>
           <p className={styles.heroDesc}>
             A software integration layer for your BMS or other electronic devices.
             CellDoc surfaces real-time battery insights directly on your screens,
             and serves as a unified platform for fleet management and data analytics.
           </p>
+          <div className={styles.heroActions}>
+            <button className="btn-primary">View Datasheet</button>
+            <button
+              className={`btn-outline ${styles.viewMoreBtn}`}
+              onClick={() => setExpanded(v => !v)}
+            >
+              {expanded ? 'View Less' : 'View More'}
+              <svg
+                viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"
+                className={`${styles.chevron} ${expanded ? styles.chevronUp : ''}`}
+              >
+                <polyline points="6 9 12 15 18 9"/>
+              </svg>
+            </button>
+          </div>
         </div>
         <div className={styles.heroImg}>
           <img src="/celldoc-dashboard.png" alt="CellDoc dashboard" />
         </div>
       </div>
 
-      <div className={styles.devicesSection}>
-        <div className={styles.devicesLabel}>CONNECT ANY DEVICE</div>
-        <div className={styles.devicesGrid} ref={devicesRef}>
-          {DEVICES.map(({ title, desc, icon }) => (
-            <div key={title} className={`${styles.deviceCard} reveal`}>
-              <div className={styles.deviceIcon}>{icon}</div>
-              <div>
-                <div className={styles.deviceTitle}>{title}</div>
-                <p className={styles.deviceDesc}>{desc}</p>
-              </div>
+      {/* ── EXPANDABLE CONTENT ── */}
+      <div className={`${styles.expandable} ${expanded ? styles.expandableOpen : ''}`}>
+        <div className={styles.expandableInner}>
+
+          {/* Connect Any Device */}
+          <div className={styles.devicesSection}>
+            <div className={styles.devicesLabel}>CONNECT ANY DEVICE</div>
+            <div className={styles.devicesGrid} ref={devicesRef}>
+              {DEVICES.map(({ title, desc, icon }) => (
+                <div key={title} className={styles.deviceCard}>
+                  <div className={styles.deviceIcon}>{icon}</div>
+                  <div>
+                    <div className={styles.deviceTitle}>{title}</div>
+                    <p className={styles.deviceDesc}>{desc}</p>
+                  </div>
+                </div>
+              ))}
             </div>
-          ))}
+          </div>
+
+          {/* Features */}
+          <div className={styles.featuresSection}>
+            <div className={styles.devicesLabel}>FEATURES</div>
+            <div className={styles.featureGrid} ref={featRef}>
+              {FEATURES.map(({ title, desc, icon }) => (
+                <div key={title} className={styles.featCard}>
+                  <div className={styles.featIcon}>{icon}</div>
+                  <h4 className={styles.featTitle}>{title}</h4>
+                  <p className={styles.featDesc}>{desc}</p>
+                </div>
+              ))}
+            </div>
+          </div>
+
         </div>
       </div>
 
-      <div className={styles.featuresSection}>
-        <div className={styles.devicesLabel}>FEATURES</div>
-        <div className={styles.featureGrid} ref={featRef}>
-          {FEATURES.map(({ title, desc, icon }) => (
-            <div key={title} className={`${styles.featCard} reveal`}>
-              <div className={styles.featIcon}>{icon}</div>
-              <h4 className={styles.featTitle}>{title}</h4>
-              <p className={styles.featDesc}>{desc}</p>
-            </div>
-          ))}
-        </div>
-      </div>
     </section>
   )
 }

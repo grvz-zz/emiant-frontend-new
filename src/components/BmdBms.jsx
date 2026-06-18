@@ -46,16 +46,10 @@ const BMD_FEATURES = [
   },
 ]
 
-const COMMS = [
-  { label: 'CAN Bus 2.0B', active: true },
-  { label: 'IsoSPI',       active: true },
-  { label: 'Ethernet (Optional)', active: false },
-]
-
 const SYSTEM_SPECS = [
-  { param: 'Voltage Range', bmd: '0 – 80V (Per Module)',  bms: 'Up to 1500V (System)' },
-  { param: 'Accuracy',      bmd: '±1 mV',                 bms: 'System Level Aggregation' },
-  { param: 'Isolation',     bmd: 'Galvanic (IsoSPI)',      bms: 'High Voltage Barrier' },
+  { param: 'Voltage Range', bms: '0 – 80V (Per Module)',  remarks: 'Up to 1500V (System)' },
+  { param: 'Accuracy',      bms: '±1 mV',                 remarks: 'System Level Aggregation' },
+  { param: 'Isolation',     bms: 'Galvanic (IsoSPI)',      remarks: 'High Voltage Barrier' },
 ]
 
 export default function BmdBms() {
@@ -145,42 +139,59 @@ export default function BmdBms() {
                 <ul className={styles.bmsList}>
                   <li>
                     <strong>High-Voltage Handling</strong>
-                    <span>Safely orchestrates string voltages up to 1500V DC.</span>
+                    <span>Safely orchestrates string voltages up to 1500V DC across multi-module packs.</span>
                   </li>
                   <li>
                     <strong>Contactor Control</strong>
-                    <span>Precision timing for pre-charge and main contactor sequencing.</span>
+                    <span>Precision timing for pre-charge and main contactor sequencing to prevent inrush damage.</span>
+                  </li>
+                  <li>
+                    <strong>Thermal Oversight</strong>
+                    <span>Continuous pack-level temperature monitoring with automatic load derating on threshold breach.</span>
                   </li>
                 </ul>
               </div>
 
               {/* Slave Node */}
               <div className={styles.bmsCard}>
-                <div className={styles.bmsCardLabel}>SLAVE NODE ALPHA</div>
-                <div className={styles.balanceRing}>
-                  <svg viewBox="0 0 80 80">
-                    <circle cx="40" cy="40" r="32" fill="none" stroke="rgba(57,255,110,0.1)" strokeWidth="6"/>
-                    <circle cx="40" cy="40" r="32" fill="none" stroke="var(--green)" strokeWidth="6"
-                      strokeDasharray="201" strokeDashoffset="20"
-                      strokeLinecap="round" transform="rotate(-90 40 40)"/>
-                    <text x="40" y="45" textAnchor="middle" fill="var(--green)"
-                      fontSize="16" fontFamily="Syne,sans-serif" fontWeight="700">98%</text>
-                  </svg>
+                <div className={styles.bmsCardHeader}>
+                  <span className={styles.bmsCardTitle}>Slave Node Alpha</span>
                 </div>
-                <div className={styles.balanceLabel}>Active Cell Balancing</div>
+                <ul className={styles.bmsList}>
+                  <li>
+                    <strong>Active Cell Balancing</strong>
+                    <span>Maintains cell voltage uniformity across all nodes for extended pack life.</span>
+                  </li>
+                  <li>
+                    <strong>Distributed Monitoring</strong>
+                    <span>Real-time per-cell voltage and temperature sensing across the entire string.</span>
+                  </li>
+                  <li>
+                    <strong>Fault Isolation</strong>
+                    <span>Instantly isolates faulty cells to prevent cascade failure and ensure safety.</span>
+                  </li>
+                </ul>
               </div>
 
               {/* Communications */}
               <div className={styles.bmsCard}>
-                <div className={styles.bmsCardLabel}>COMMUNICATIONS</div>
-                <div className={styles.commsList}>
-                  {COMMS.map(({ label, active }) => (
-                    <div key={label} className={styles.commsRow}>
-                      <span className={styles.commsLabel}>{label}</span>
-                      <span className={`${styles.commsIndicator} ${active ? styles.commsActive : styles.commsIdle}`} />
-                    </div>
-                  ))}
+                <div className={styles.bmsCardHeader}>
+                  <span className={styles.bmsCardTitle}>Communications</span>
                 </div>
+                <ul className={styles.bmsList}>
+                  <li>
+                    <strong>CAN Bus 2.0B</strong>
+                    <span>Industry-standard vehicular protocol for robust, real-time data exchange with ECUs.</span>
+                  </li>
+                  <li>
+                    <strong>IsoSPI</strong>
+                    <span>Galvanically isolated daisy-chain interface for safe inter-module communication up to 1500V.</span>
+                  </li>
+                  <li>
+                    <strong>Ethernet (Optional)</strong>
+                    <span>High-bandwidth connectivity for cloud telemetry, OTA firmware updates, and fleet diagnostics.</span>
+                  </li>
+                </ul>
               </div>
             </div>
           </div>
@@ -191,14 +202,14 @@ export default function BmdBms() {
             <div className={styles.specsTable}>
               <div className={styles.specsHead}>
                 <span>Parameter</span>
-                <span className={styles.headBmd}>BMD</span>
-                <span className={styles.headBms}>BMS</span>
+                <span className={styles.headBmd}>BMS</span>
+                <span className={styles.headBms}>Remarks</span>
               </div>
-              {SYSTEM_SPECS.map(({ param, bmd, bms }) => (
+              {SYSTEM_SPECS.map(({ param, bms, remarks }) => (
                 <div key={param} className={styles.specsRow}>
                   <span className={styles.specsParam}>{param}</span>
-                  <span className={styles.specsBmd}>{bmd}</span>
-                  <span className={styles.specsBms}>{bms}</span>
+                  <span className={styles.specsBmd}>{bms}</span>
+                  <span className={styles.specsBms}>{remarks}</span>
                 </div>
               ))}
             </div>
