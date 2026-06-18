@@ -33,9 +33,9 @@ const ADVANTAGES = [
 ]
 
 const SPECS = [
-  { param: 'Effective Thermal Conductivity', value: '> 10,000 W/m·K', highlight: false },
-  { param: 'Operating Temperature Range',    value: '-40°C to +150°C',  highlight: false },
-  { param: 'Standard Thickness',            value: '0.4mm – 1.2mm',    highlight: false },
+  { param: 'Effective Thermal Conductivity', value: '10-20 W/m·K', highlight: false },
+  { param: 'Operating Temperature Range',    value: '-40°C to 70°C',  highlight: false },
+  { param: 'Standard Thickness',            value: '>0.5mm',    highlight: false },
   { param: 'Max Heat Flux Capability',       value: '250 W/cm²',        highlight: false },
   { param: 'Flexibility',                   value: 'Conformable (R > 10mm)', highlight: true },
 ]
@@ -68,9 +68,10 @@ export default function Siphotherm() {
             Maximum Safety.
           </h2>
           <p className={styles.heroDesc}>
-            Siphotherm™ is an advanced, ultra-thin passive thermal management material
-            designed to dissipate high-density heat loads in constrained environments
-            without reliance on active cooling mechanisms.
+            Siphotherm™ is an advanced passive thermal management material that dissipates 
+            high-density heat in compact battery architectures, enabling faster charging, 
+            enhancing fire safety, and minimizing thermal gradients across the battery pack.
+
           </p>
           <div className={styles.heroActions}>
             <button className="btn-primary">View Datasheet</button>

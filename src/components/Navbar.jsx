@@ -12,7 +12,7 @@ const NAV_LINKS = [
 
 const PRODUCT_LINKS = [
   { label: 'Siphotherm', href: '/#siphotherm' },
-  { label: 'BMS / BMD',  href: '/#bmdbms' },
+  { label: 'Battery Management Systems',  href: '/#bmdbms' },
   { label: 'Cell Doc',   href: '/#celldoc' },
 ]
 

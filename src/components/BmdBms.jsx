@@ -4,7 +4,7 @@ import styles from './BmdBms.module.css'
 const BMD_FEATURES = [
   {
     title: 'Advanced State Estimation',
-    desc: 'High-precision SOC (State of Charge) and SOH (State of Health) algorithms ensuring optimal cell utilization and lifecycle extension.',
+    desc: 'High-accuracy SoC and SoH estimation for better battery utilization, performance, and lifecycle management.',
     wide: true,
     icon: (
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
@@ -13,8 +13,8 @@ const BMD_FEATURES = [
     ),
   },
   {
-    title: 'Cloud Integration',
-    desc: 'Real-time telemetry streaming to secure cloud infrastructure for predictive maintenance and fleet analytics.',
+    title: 'Scalable Master-Slave Architecture',
+    desc: 'Master–slave topology that scales from EV packs to containerized energy storage systems without redesign.',
     wide: false,
     icon: (
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
@@ -23,8 +23,8 @@ const BMD_FEATURES = [
     ),
   },
   {
-    title: 'Edge Processing',
-    desc: 'Local diagnostic capabilities with sub-millisecond response times for critical safety events.',
+    title: 'Diagnostics and Event Logging',
+    desc: 'On-board fault logging and telemetry to support faster debugging, remote monitoring, and field service.',
     wide: false,
     icon: (
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
@@ -33,8 +33,8 @@ const BMD_FEATURES = [
     ),
   },
   {
-    title: 'Multi-Sensor Array',
-    desc: 'Simultaneous thermal, voltage, and current monitoring across hundreds of distributed nodes.',
+    title: 'System Integration Ready',
+    desc: 'Standard communication interfaces and configurable I/O for seamless integration with chargers, vehicle controllers, and EMS/SCADA.',
     wide: false,
     icon: (
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
@@ -52,9 +52,9 @@ const COMMS = [
 ]
 
 const SYSTEM_SPECS = [
-  { param: 'Voltage Range', bmd: '0 – 80V (Per Module)',     bms: 'Up to 1500V (System)' },
-  { param: 'Accuracy',      bmd: '±1 mV',                    bms: 'System Level Aggregation' },
-  { param: 'Isolation',     bmd: 'Galvanic (IsoSPI)',         bms: 'High Voltage Barrier' },
+  { param: 'Voltage Range', bmd: '0 – 80V (Per Module)',       bms: 'Up to 2800V (Per-String)' },
+  { param: 'Accuracy',      bmd: '±1.5 mV',                    bms: 'System Level Aggregation' },
+  { param: 'Isolation',     bmd: 'Optical',                    bms: 'High Voltage Barrier' },
 ]
 
 export default function BmdBms() {
@@ -73,11 +73,12 @@ export default function BmdBms() {
           SYSTEMS ONLINE
         </div>
         <h2 className={styles.heroTitle}>
-          BMS: Advanced Battery Management System
+          High-Voltage BMS: Precise. Scalable. Flexible.
         </h2>
         <p className={styles.heroDesc}>
-          Next-generation Intelligent Battery Monitoring (BMD) and Advanced Battery
-          Control (BMS) for high-frequency applications.
+          Engineered for electric mobility and energy storage applications, 
+          with real-time monitoring, intelligent protection, and 
+          reliable pack control in a scalable architecture.
         </p>
       </div>
 
@@ -121,18 +122,22 @@ export default function BmdBms() {
             <ul className={styles.bmsList}>
               <li>
                 <strong>High-Voltage Handling</strong>
-                <span>Safely orchestrates string voltages up to 1500V DC.</span>
+                <span>Safely orchestrates string voltages up to 2800V DC per-string.</span>
               </li>
               <li>
                 <strong>Contactor Control</strong>
                 <span>Precision timing for pre-charge and main contactor sequencing.</span>
+              </li>
+              <li>
+                <strong>Fault Handling & Pack level Decision Making</strong>
+                <span>Identifies critical faults and triggers pack-level responses to protect the battery system.</span>
               </li>
             </ul>
           </div>
 
           {/* Slave Node */}
           <div className={styles.bmsCard}>
-            <div className={styles.bmsCardLabel}>SLAVE NODE ALPHA</div>
+            <div className={styles.bmsCardLabel}>Slave Monitoring Units</div>
             <div className={styles.balanceRing}>
               <svg viewBox="0 0 80 80">
                 <circle cx="40" cy="40" r="32" fill="none" stroke="rgba(57,255,110,0.1)" strokeWidth="6"/>
