@@ -90,7 +90,13 @@
 }
 
 .rotatingWord {
-  display: inline;
+  display: inline-block;
+  vertical-align: top;
+  /* Reserve space for up to two lines of the heading so the
+     preceding "Next-Generation" line doesn't shift when the
+     rotating text is typed/deleted. */
+  min-height: calc(1.02em * 2);
+  overflow: hidden;
 }
 
 .cursor {
