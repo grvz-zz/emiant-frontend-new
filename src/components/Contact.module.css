@@ -174,3 +174,42 @@
   .row { grid-template-columns: 1fr; }
   .addressRow { grid-template-columns: 1fr; gap: 16px; }
 }
+/* ── Office tabs ── */
+.officeTabs {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 16px;
+}
+
+.officeTab {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 7px 16px;
+  border-radius: 100px;
+  border: 1px solid var(--border2);
+  background: transparent;
+  color: var(--text2);
+  font-size: 13px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: border-color 0.2s, color 0.2s, background 0.2s;
+}
+
+.officeTab:hover {
+  border-color: var(--green);
+  color: var(--green);
+}
+
+.officeTabActive {
+  border-color: var(--green);
+  background: var(--green-muted);
+  color: var(--green);
+}
+
+.officeAddress {
+  font-size: 14px;
+  color: var(--text2);
+  line-height: 1.8;
+  margin-bottom: 20px;
+}

@@ -34,7 +34,7 @@
   transform: scale(1.03);
 }
 
-.hero { display: flex; flex-direction: column; gap: 0; }
+.hero { display: flex; flex-direction: column; gap: 0; text-align: right; align-items: flex-end; }
 
 .heroBadge {
   display: inline-flex;
@@ -49,7 +49,7 @@
   border: 1px solid var(--border);
   border-radius: 100px;
   padding: 5px 14px;
-  align-self: flex-start;
+  align-self: flex-end;
 }
 
 .heroDot {

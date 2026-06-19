@@ -18,9 +18,19 @@ const BMD_FEATURES = [
     desc: 'Master–slave topology that scales from EV packs to containerized energy storage systems without redesign.',
     wide: false,
     icon: (
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
-        <path d="M18 10h-1.26A8 8 0 1 0 9 20h9a5 5 0 0 0 0-10z"/>
-      </svg>
+   <svg
+    viewBox="0 0 24 24"
+    fill="none"
+    stroke="currentColor"
+    strokeWidth="1.5"
+    strokeLinecap="round"
+    strokeLinejoin="round"
+   >
+    <path d="M12 3H5a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7" />
+    <path d="M14 15H9v-5" />
+    <path d="M16 3h5v5" />
+    <path d="M21 3 9 15" />
+  </svg>
     ),
   },
   {
@@ -70,7 +80,7 @@ export default function BmdBms() {
             BMS: ACTIVE 
           </div>
           <h2 className={styles.heroTitle}>
-            High-Voltage BMS: Precise. Scalable. Flexible.
+            High-Voltage BMS:<br/>Precise. Scalable. Flexible.
           </h2>
           <p className={styles.heroDesc}>
             Engineered for electric mobility and energy storage applications, 

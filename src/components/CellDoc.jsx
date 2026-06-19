@@ -28,11 +28,23 @@ const FEATURES = [
     title: 'Automations and Intelligence',
     desc: 'Advanced analytics and AI-driven insights for proactive battery management. Trigger workflows, maintenance actions, and optimization routines automatically..',
     icon: (
-      <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
-        <path d="M3 3v18h18"/>
-        <path d="M18 17V9M13 17V5M8 17v-3"/>
-      </svg>
-    ),
+  <svg
+    viewBox="0 0 24 24"
+    fill="none"
+    stroke="currentColor"
+    strokeWidth="1.5"
+    strokeLinecap="round"
+    strokeLinejoin="round"
+  >
+    <path d="M17 19a1 1 0 0 1-1-1v-2a2 2 0 0 1 2-2h2a2 2 0 0 1 2 2v2a1 1 0 0 1-1 1z" />
+    <path d="M17 21v-2" />
+    <path d="M19 14V6.5a1 1 0 0 0-7 0v11a1 1 0 0 1-7 0V10" />
+    <path d="M21 21v-2" />
+    <path d="M3 5V3" />
+    <path d="M4 10a2 2 0 0 1-2-2V6a1 1 0 0 1 1-1h4a1 1 0 0 1 1 1v2a2 2 0 0 1-2 2z" />
+    <path d="M7 5V3" />
+  </svg>
+),
   },
 ]
 
@@ -52,22 +64,42 @@ const DEVICES = [
     title: 'ElectricVehicles',
     desc: 'Supports EVs, e-bikes, e-rickshaws, buses, and commercial fleets through a unified telemetry layer.',
     icon: (
-      <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
-        <rect x="1" y="6" width="15" height="12" rx="2"/>
-        <path d="M16 10h3l3 3v5h-6"/>
-        <circle cx="6" cy="18" r="2"/>
-        <circle cx="17" cy="18" r="2"/>
-      </svg>
-    ),
+  <svg
+    viewBox="0 0 24 24"
+    fill="none"
+    stroke="currentColor"
+    strokeWidth="1.5"
+    strokeLinecap="round"
+    strokeLinejoin="round"
+  >
+    <path d="m21 8-2 2-1.5-3.7A2 2 0 0 0 15.646 5H8.4a2 2 0 0 0-1.903 1.257L5 10 3 8" />
+    <path d="M7 14h.01" />
+    <path d="M17 14h.01" />
+    <rect width="18" height="8" x="3" y="10" rx="2" />
+    <path d="M5 18v2" />
+    <path d="M19 18v2" />
+  </svg>
+),
   },
   {
     title: 'Charging & Swap Infrastructure',
     desc: 'Connects with chargers and battery swap stations to extend visibility across energy delivery points.',
     icon: (
-      <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
-        <path d="M14 2l-7 11h5l-1 9 7-11h-5l1-9z"/>
-      </svg>
-    ),
+  <svg
+    viewBox="0 0 24 24"
+    fill="none"
+    stroke="currentColor"
+    strokeWidth="1.5"
+    strokeLinecap="round"
+    strokeLinejoin="round"
+  >
+    <path d="M14 13h2a2 2 0 0 1 2 2v2a2 2 0 0 0 4 0v-6.998a2 2 0 0 0-.59-1.42L18 5" />
+    <path d="M14 21V5a2 2 0 0 0-2-2H5a2 2 0 0 0-2 2v16" />
+    <path d="M2 21h13" />
+    <path d="M3 7h11" />
+    <path d="m9 11-2 3h3l-2 3" />
+  </svg>
+),
   },
   {
     title: 'Battery Energy Storage Systems (BESS)',

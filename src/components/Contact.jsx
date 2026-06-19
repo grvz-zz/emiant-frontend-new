@@ -15,11 +15,27 @@ const PhoneIcon = () => (
   </svg>
 )
 
+const OFFICES = [
+  {
+    label: 'Headquarter',
+    address: ['Emiant Innovations Pvt Ltd', '59-8-38, Turangi, Jagannaickpur', 'Kakinada(Urban), East-Godavari', 'Andhra Pradesh - 533002'],
+    mapSrc: 'https://maps.google.com/maps?q=Kakinada+East+Godavari+Andhra+Pradesh+533002&output=embed&z=15',
+    mapHref: 'https://maps.app.goo.gl/GeZQkTWMkEMurXow9',
+  },
+  {
+    label: 'Branch Address',
+    address: ['No. 37, 2nd Floor, Samanvay Status 2', 'Atladara, Vadodara - 390012', 'Gujarat', 'Landmark: Near Jagdish Farsan'],
+    mapSrc: 'https://maps.google.com/maps?q=Atladara+Vadodara+Gujarat+390012&output=embed&z=15',
+    mapHref: 'https://www.google.com/maps/search/Samanvay+Status+2+Atladara+Vadodara',
+  },
+]
+
 export default function Contact() {
   const headerRef = useScrollAnimation()
   const formRef   = useScrollAnimation({ threshold: 0.1 })
   const infoRef   = useScrollAnimation({ threshold: 0.1 })
 
+  const [activeOffice, setActiveOffice] = useState(0)
   const [form, setForm] = useState({ firstName:'', lastName:'', email:'', company:'', inquiry:'' })
   const [submitted, setSubmitted] = useState(false)
 
@@ -36,7 +52,7 @@ export default function Contact() {
         <div className="section-eyebrow">Contact</div>
         <h2 className="section-title">Get in Touch</h2>
         <p className="section-sub">
-          Talk to our team about integrating advanced battery management, 
+          Talk to our team about integrating advanced battery management,
           passive thermal control, and battery intelligence software into your platform.
         </p>
       </div>
@@ -84,38 +100,44 @@ export default function Contact() {
         {/* INFO */}
         <div className={`reveal-right ${styles.info}`} ref={infoRef}>
           <div className={styles.infoBlock}>
-            <div className={styles.addressRow}>
-              <div>
-                <h3 className={styles.infoTitle}><LocationIcon /> Headquarter</h3>
-                <p>Emiant Innovations Pvt Ltd<br/>59-8-38, Turangi, Jagannaickpur<br/>Kakinada(Urban), East-Godavari<br/>Andhra Pradesh - 533002</p>
-              </div>
-              <div>
-                <h3 className={styles.infoTitle}><LocationIcon /> Branch Address</h3>
-                <p>No. 37, 2nd Floor, Samanvay Status 2<br/>Atladara, Vadodara - 390012<br/>Gujarat<br/>Landmark: Near Jagdish Farsan</p>
-              </div>
+            {/* Office tabs */}
+            <div className={styles.officeTabs}>
+              {OFFICES.map((o, i) => (
+                <button
+                  key={o.label}
+                  className={`${styles.officeTab} ${activeOffice === i ? styles.officeTabActive : ''}`}
+                  onClick={() => setActiveOffice(i)}
+                >
+                  <LocationIcon /> {o.label}
+                </button>
+              ))}
             </div>
+            <p className={styles.officeAddress}>
+              {OFFICES[activeOffice].address.map((line, i) => (
+                <span key={i}>{line}<br/></span>
+              ))}
+            </p>
             <a
-                href="https://maps.app.goo.gl/GeZQkTWMkEMurXow9"
-                target="_blank"
-                rel="noopener noreferrer"
-                className={styles.mapEmbed}
-              >
-                <iframe
-                  src="https://maps.google.com/maps?q=Emiant+Innovations+Pvt+Ltd+Nidadavolu&output=embed&z=16"
-                  title="Emiant Innovations HQ"
-                  loading="lazy"
-                  style={{pointerEvents:'none'}}
-                />
-                <div className={styles.mapOverlay}>View on Google Maps ↗</div>
-              </a>
+              href={OFFICES[activeOffice].mapHref}
+              target="_blank"
+              rel="noopener noreferrer"
+              className={styles.mapEmbed}
+            >
+              <iframe
+                key={activeOffice}
+                src={OFFICES[activeOffice].mapSrc}
+                title={OFFICES[activeOffice].label}
+                loading="lazy"
+                style={{pointerEvents:'none'}}
+              />
+              <div className={styles.mapOverlay}>View on Google Maps ↗</div>
+            </a>
           </div>
 
           <div className={styles.infoBlock}>
             <h3 className={styles.infoTitle}><PhoneIcon /> Direct Contact</h3>
             <p>
               <a href="mailto:info@emiant.com">info@emiant.com</a>
-              <br/>
-              {/* <a href="tel:93067 31085">+91 93067 31085</a> */}
             </p>
           </div>
         </div>

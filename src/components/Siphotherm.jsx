@@ -7,20 +7,49 @@ const ADVANTAGES = [
     title: 'Passive by Design',
     desc: 'Delivers thermal regulation with zero operating power and no active control overhead.',
     icon: (
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
-        <path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/>
-      </svg>
-    ),
+  <svg
+    viewBox="0 0 24 24"
+    fill="none"
+    stroke="currentColor"
+    strokeWidth="1.5"
+    strokeLinecap="round"
+    strokeLinejoin="round"
+  >
+    <path d="M10.5 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2v5.5" />
+    <path d="m14.3 19.6 1-.4" />
+    <path d="M15 3v7.5" />
+    <path d="m15.2 16.9-.9-.3" />
+    <path d="m16.6 21.7.3-.9" />
+    <path d="m16.8 15.3-.4-1" />
+    <path d="m19.1 15.2.3-.9" />
+    <path d="m19.6 21.7-.4-1" />
+    <path d="m20.7 16.8 1-.4" />
+    <path d="m21.7 19.4-.9-.3" />
+    <path d="M9 3v18" />
+    <circle cx="18" cy="18" r="3" />
+  </svg>
+),
   },
   {
     title: 'High Performance, Low Footprint',
     desc: 'Combines high in-plane conductivity with a thin form factor for compact battery pack integration.',
     icon: (
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
-        <path d="M12 2v20M2 12h20"/>
-        <circle cx="12" cy="12" r="4"/>
-      </svg>
-    ),
+  <svg
+    viewBox="0 0 24 24"
+    fill="none"
+    stroke="currentColor"
+    strokeWidth="1.5"
+    strokeLinecap="round"
+    strokeLinejoin="round"
+  >
+    <path d="M12 16v5" />
+    <path d="M16 14.639V21" />
+    <path d="M20 10.656V21" />
+    <path d="m22 3-8.646 8.646a.5.5 0 0 1-.708 0L9.354 8.354a.5.5 0 0 0-.707 0L2 15" />
+    <path d="M4 18.463V21" />
+    <path d="M8 14.656V21" />
+  </svg>
+),
   },
   {
     title: 'Robust Under Stress',

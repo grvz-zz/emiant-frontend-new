@@ -96,7 +96,7 @@ export default function Hero() {
           <em className={styles.rotatingWord}>
             {displayText.slice(0, -1)}
             <span style={{ whiteSpace: 'nowrap' }}>
-              {displayText.slice(-1)}<span className={styles.cursor}>.</span>
+              {displayText.slice(-1)}<span className={styles.cursor}>|</span>
             </span>
           </em>
         </h1>

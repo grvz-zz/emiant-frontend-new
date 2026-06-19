@@ -1,6 +1,7 @@
 import { useScrollAnimation, useStaggerAnimation } from '../hooks/useScrollAnimation'
 import styles from './CoreTechStack.module.css'
 
+
 const CARDS = [
   {
     id: 'SYS-01',
@@ -9,11 +10,17 @@ const CARDS = [
     features: ['Zero Operating Power', 'Uniform Temperature Distribution', 'Fire Mitigation'],
     badge: null,
     icon: (
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
-        <path d="M12 2a5 5 0 0 1 5 5c0 5-5 13-5 13S7 12 7 7a5 5 0 0 1 5-5z"/>
-        <path d="M12 2v4M8.5 4.5l2.8 2.8M15.5 4.5l-2.8 2.8"/>
-      </svg>
-    ),
+  <svg
+    viewBox="0 0 24 24"
+    fill="none"
+    stroke="currentColor"
+    strokeWidth="1.5"
+    strokeLinecap="round"
+    strokeLinejoin="round"
+  >
+    <path d="M14 4v10.54a4 4 0 1 1-4 0V4a2 2 0 0 1 4 0Z" />
+  </svg>
+),
     href: '#siphotherm',
   },
   {
@@ -24,10 +31,21 @@ const CARDS = [
     scanRate: '1000Hz',
     features: ['Hybrid Balancing', 'Modular Scalability','Advanced Safety Features'],
     icon: (
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
-        <polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/>
-      </svg>
-    ),
+  <svg
+    viewBox="0 0 24 24"
+    fill="none"
+    stroke="currentColor"
+    strokeWidth="1.5"
+    strokeLinecap="round"
+    strokeLinejoin="round"
+  >
+    <path d="M10 10v4" />
+    <path d="M14 10v4" />
+    <path d="M22 14v-4" />
+    <path d="M6 10v4" />
+    <rect x="2" y="6" width="16" height="12" rx="2" />
+  </svg>
+),
     href: '#bmdbms',
   },
   {
@@ -37,12 +55,20 @@ const CARDS = [
     badge: null,
     features: ['Real-Time Insights', 'Real-Time SoH Tracking','Unified Fleet Management','Alerts & Diagnostics','Predictive Analytics'],
     icon: (
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
-        <rect x="2" y="2" width="20" height="20" rx="4"/>
-        <circle cx="12" cy="12" r="4"/>
-        <path d="M12 2v4M12 18v4M2 12h4M18 12h4"/>
-      </svg>
-    ),
+  <svg
+    viewBox="0 0 24 24"
+    fill="none"
+    stroke="currentColor"
+    strokeWidth="1.5"
+    strokeLinecap="round"
+    strokeLinejoin="round"
+  >
+    <path d="M11 13a3 3 0 1 1 2.83-4H14a2 2 0 0 1 0 4z" />
+    <path d="M12 17v4" />
+    <path d="M8 21h8" />
+    <rect x="2" y="3" width="20" height="14" rx="2" />
+  </svg>
+),
     href: '#celldoc',
   },
 ]
