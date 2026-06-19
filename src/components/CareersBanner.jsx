@@ -10,13 +10,13 @@ export default function CareersBanner() {
         <div className={styles.left}>
           <div className="section-eyebrow">Join Us</div>
           <h2 className={`section-title ${styles.heading}`}>
-            Help Us Engineer<br />the Future
+            Build the Future of Battery Intelligence.
           </h2>
           <p className={styles.body}>
-            We are actively seeking exceptional material scientists,
-            mechanical engineers and web developers to join our India
-            headquarters. If you are passionate about scalable clean
-            technology, we want to hear from you.
+            We’re building advanced battery systems across 
+            BMS, thermal management, and software intelligence. 
+            If you want to work on hard engineering problems with real-world 
+            impact in EV and energy storage, we’d love to hear from you.
           </p>
         </div>
         <div className={styles.right}>

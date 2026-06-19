@@ -101,7 +101,8 @@ export default function AboutPage() {
         <div className={`reveal ${styles.heroLeft}`} ref={heroRef}>
           <div className={styles.heroBadge}>
             <span className={styles.badgeDot} />
-            MISSION PROTOCOL 01
+            MISSION PROTOCOL 02
+          
           </div>
           <h1 className={styles.heroTitle}>
             Committed to a Sustainable Energy Future.

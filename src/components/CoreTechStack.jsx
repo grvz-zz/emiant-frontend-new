@@ -5,8 +5,8 @@ const CARDS = [
   {
     id: 'SYS-01',
     name: 'Siphotherm',
-    desc: 'Passive thermal management utilizing advanced phase-change materials for zero-energy cooling.',
-    features: ['Zero Parasitic Load', 'Uniform Temperature Dist.'],
+    desc: 'Passive thermal management material engineered to spread heat, reduce thermal gradients, and improve pack safety without parasitic power draw.',
+    features: ['Zero Operating Power', 'Uniform Temperature Distribution', 'Fire Mitigation'],
     badge: null,
     icon: (
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
@@ -19,10 +19,10 @@ const CARDS = [
   {
     id: 'SYS-02',
     name: 'Battery Management System',
-    desc: 'High-fidelity Battery Monitoring Diagnostics combined with intelligent control. Real-time telemetry at the cellular level with predictive algorithms for optimized lifecycle and safety.',
+    desc: 'High-voltage BMS architecture for real-time monitoring, intelligent protection, and precise pack control across demanding EV and energy storage applications.',
     badge: 'LIVE',
     scanRate: '1000Hz',
-    features: ['Active Balancing', 'AI Predictive Maintenance'],
+    features: ['Hybrid Balancing', 'Modular Scalability','Advanced Safety Features'],
     icon: (
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
         <polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/>
@@ -35,7 +35,7 @@ const CARDS = [
     name: 'CellDoc',
     desc: 'Comprehensive cell diagnostics and health documentation platform for tracking performance and degradation over the battery lifecycle.',
     badge: null,
-    features: ['Analytics', 'Real-Time Insights'],
+    features: ['Real-Time Insights', 'Real-Time SoH Tracking','Unified Fleet Management','Alerts & Diagnostics','Predictive Analytics'],
     icon: (
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
         <rect x="2" y="2" width="20" height="20" rx="4"/>
@@ -54,7 +54,7 @@ export default function CoreTechStack() {
   return (
     <section className={styles.section} id="technology">
       <div className={`reveal ${styles.header}`} ref={headerRef}>
-        <h2 className={styles.title}>Core Technology Stack</h2>
+        <h2 className={styles.title}>Built as a Unified Battery Stack</h2>
         <div className={styles.titleLine} />
       </div>
 
@@ -81,19 +81,6 @@ export default function CoreTechStack() {
 
               <h3 className={styles.cardName}>{card.name}</h3>
               <p className={styles.cardDesc}>{card.desc}</p>
-
-              {card.scanRate && (
-                <div className={styles.scanBlock}>
-                  <div className={styles.scanDivider} />
-                  <div className={styles.scanRow}>
-                    <span className={styles.scanLabel}>Scan Rate</span>
-                    <span className={styles.scanValue}>{card.scanRate}</span>
-                  </div>
-                  <div className={styles.scanBar}>
-                    <div className={styles.scanFill} />
-                  </div>
-                </div>
-              )}
 
               {card.features && (
                 <ul className={styles.features}>

@@ -4,8 +4,8 @@ import styles from './CellDoc.module.css'
 
 const FEATURES = [
   {
-    title: 'Real-Time Insights',
-    desc: 'Live battery telemetry, alerts, and performance monitoring delivered straight to your screens for instant visibility into system health.',
+    title: 'Real-Time Battery Insights',
+    desc: 'Streams live battery telemetry, alerts, and health metrics into your dashboards for faster, more confident operational decisions.',
     icon: (
       <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
         <polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/>
@@ -13,8 +13,8 @@ const FEATURES = [
     ),
   },
   {
-    title: 'Fleet Management',
-    desc: 'Track vehicles, drivers, routes, and operations across your entire fleet from a single unified dashboard.',
+    title: 'Unified Fleet Management',
+    desc: 'Gives you a single interface to monitor vehicles, routes, drivers, and battery performance across your entire fleet.',
     icon: (
       <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
         <rect x="1" y="6" width="15" height="12" rx="2"/>
@@ -25,8 +25,8 @@ const FEATURES = [
     ),
   },
   {
-    title: 'Data Analytics',
-    desc: 'Advanced analytics tools turn raw battery data into actionable insights for smarter, faster decisions.',
+    title: 'Automations and Intelligence',
+    desc: 'Advanced analytics and AI-driven insights for proactive battery management. Trigger workflows, maintenance actions, and optimization routines automatically..',
     icon: (
       <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
         <path d="M3 3v18h18"/>
@@ -38,8 +38,8 @@ const FEATURES = [
 
 const DEVICES = [
   {
-    title: 'BMS',
-    desc: 'Battery Management System',
+    title: 'Battery Management Systems',
+    desc: 'Integrates with BMS hardware to stream real-time battery data, diagnostics, and alerts into CellDoc.',
     icon: (
       <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
         <rect x="6" y="2" width="12" height="20" rx="2"/>
@@ -49,8 +49,8 @@ const DEVICES = [
     ),
   },
   {
-    title: 'Vehicles',
-    desc: 'EVs, E-bikes, E-rickshaws, Buses, Trucks',
+    title: 'ElectricVehicles',
+    desc: 'Supports EVs, e-bikes, e-rickshaws, buses, and commercial fleets through a unified telemetry layer.',
     icon: (
       <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
         <rect x="1" y="6" width="15" height="12" rx="2"/>
@@ -61,8 +61,8 @@ const DEVICES = [
     ),
   },
   {
-    title: 'Chargers / Swap Stations',
-    desc: 'Charging Points, Battery Swap Stations',
+    title: 'Charging & Swap Infrastructure',
+    desc: 'Connects with chargers and battery swap stations to extend visibility across energy delivery points.',
     icon: (
       <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
         <path d="M14 2l-7 11h5l-1 9 7-11h-5l1-9z"/>
@@ -71,7 +71,7 @@ const DEVICES = [
   },
   {
     title: 'Battery Energy Storage Systems (BESS)',
-    desc: 'Enhance grid stability and renewable energy integration with high-density, durable storage.',
+    desc: 'Brings monitoring and analytics to stationary storage deployments, including distributed and grid-connected assets.',
     icon: (
       <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
         <rect x="2" y="7" width="20" height="14" rx="2"/>
@@ -97,13 +97,13 @@ export default function CellDoc() {
         <div className={styles.hero}>
           <div className={styles.heroBadge}>
             <span className={styles.heroDot} />
-            SOFTWARE PLATFORM
+            TELEMETRY: LIVE
           </div>
-          <h2 className={styles.heroTitle}>CellDoc</h2>
+          <h2 className={styles.heroTitle}>CellDoc: Real-Time Battery Intelligence</h2>
           <p className={styles.heroDesc}>
-            A software integration layer for your BMS or other electronic devices.
-            CellDoc surfaces real-time battery insights directly on your screens,
-            and serves as a unified platform for fleet management and data analytics.
+            CellDoc is a software integration layer for your BMS and connected devices. 
+            It surfaces real‑time battery insights on any screen and acts as a unified 
+            platform for fleet management and data analytics.
           </p>
           <div className={styles.heroActions}>
             <button className="btn-primary">View Datasheet</button>
@@ -133,7 +133,7 @@ export default function CellDoc() {
 
           {/* Connect Any Device */}
           <div className={styles.devicesSection}>
-            <div className={styles.devicesLabel}>CONNECT ANY DEVICE</div>
+            <div className={styles.devicesLabel}>COMPATIBLE ACROSS YOUR ECOSYSTEM </div>
             <div className={styles.devicesGrid} ref={devicesRef}>
               {DEVICES.map(({ title, desc, icon }) => (
                 <div key={title} className={styles.deviceCard}>
@@ -149,7 +149,7 @@ export default function CellDoc() {
 
           {/* Features */}
           <div className={styles.featuresSection}>
-            <div className={styles.devicesLabel}>FEATURES</div>
+            <div className={styles.devicesLabel}>BUILT-IN INTELLIGENCE</div>
             <div className={styles.featureGrid} ref={featRef}>
               {FEATURES.map(({ title, desc, icon }) => (
                 <div key={title} className={styles.featCard}>

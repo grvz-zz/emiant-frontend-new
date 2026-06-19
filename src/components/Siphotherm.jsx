@@ -4,8 +4,8 @@ import styles from './Siphotherm.module.css'
 
 const ADVANTAGES = [
   {
-    title: 'Zero Power Draw',
-    desc: 'Operates entirely passively via advanced capillary action and phase-change dynamics. Eliminates parasitic power loss in critical systems.',
+    title: 'Passive by Design',
+    desc: 'Delivers thermal regulation with zero operating power and no active control overhead.',
     icon: (
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
         <path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/>
@@ -13,8 +13,8 @@ const ADVANTAGES = [
     ),
   },
   {
-    title: 'Ultra-Thin Profile',
-    desc: 'At just 0.4mm thick, Siphotherm integrates into highly constrained geometries where traditional heat sinks or liquid loops cannot fit.',
+    title: 'High Performance, Low Footprint',
+    desc: 'Combines high in-plane conductivity with a thin form factor for compact battery pack integration.',
     icon: (
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
         <path d="M12 2v20M2 12h20"/>
@@ -23,8 +23,8 @@ const ADVANTAGES = [
     ),
   },
   {
-    title: 'Fail-Safe Operation',
-    desc: 'No moving parts, pumps, or fluids under pressure. Inherently robust design ensures continuous operation even under extreme shock or vibration.',
+    title: 'Robust Under Stress',
+    desc: 'Maintains function without pumps or flow circuits, reducing failure modes in demanding EV and energy storage environments.',
     icon: (
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
         <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
@@ -42,19 +42,13 @@ const COMPARISON = [
     highlight: false,
   },
   {
-    attr: 'Thermal conductivity (W/m·K) — Heat dissipation, Anisotropic',
-    siphotherm: '16–20 W/m.K (In Plane) · 7–9 W/m.K (Through Plane)',
+    attr: 'Thermal conductivity (W/m·K)',
+    siphotherm: '16–20 W/m.K (In Plane)',
     pcm: '0.2–0.5 W/m.K',
     other: '3–5 W/m.K',
     highlight: true,
   },
-  {
-    attr: 'Cost per unit (INR/kg)',
-    siphotherm: '₹1300–1800/kg',
-    pcm: '₹500–700/kg',
-    other: '>₹1500/kg',
-    highlight: false,
-  },
+ 
   {
     attr: 'Operating temperature range (°C)',
     siphotherm: '40–70 °C',
@@ -80,7 +74,7 @@ const COMPARISON = [
     attr: 'Leakage / Maintenance',
     siphotherm: 'Low',
     pcm: 'Yes / Moderate',
-    other: 'High',
+    other: 'Low/None',
     highlight: true,
   },
 ]
@@ -99,7 +93,7 @@ export default function Siphotherm() {
         <div className={styles.hero}>
           <div className={styles.heroBadge}>
             <span className={styles.heroDot} />
-            SYS.ACTIVE
+            SAFE MODE: ON
           </div>
           <h2 className={styles.heroTitle}>
             Passive Thermal Control.<br />
@@ -107,9 +101,9 @@ export default function Siphotherm() {
             Maximum Safety.
           </h2>
           <p className={styles.heroDesc}>
-            Siphotherm™ is an advanced, ultra-thin passive thermal management material
-            designed to dissipate high-density heat loads in constrained environments
-            without reliance on active cooling mechanisms.
+           Siphotherm™ is an advanced passive thermal management material engineered 
+           to dissipate high-density heat loads in constrained battery environments, 
+           enabling faster charging, improving fire mitigation, and reducing thermal gradients across the pack.
           </p>
           <div className={styles.heroActions}>
             <button className="btn-primary">View Datasheet</button>
@@ -130,7 +124,7 @@ export default function Siphotherm() {
           </div>
         </div>
         <div className={styles.heroImg}>
-          <img src="/siphotherm.png" alt="Siphotherm" />
+          <img src="/sptherm1.png" alt="Siphotherm" />
         </div>
       </div>
 
@@ -141,7 +135,7 @@ export default function Siphotherm() {
           {/* ── KEY ADVANTAGES ── */}
           <div className={styles.subsection}>
             <div className={styles.subHeader}>
-              <h3 className={styles.subTitle}>KEY ADVANTAGES</h3>
+              <h3 className={styles.subTitle}>WHY SIPHOTHERM ?</h3>
               <div className={styles.subLine} />
             </div>
             <div className={styles.advantageGrid} ref={advRef}>

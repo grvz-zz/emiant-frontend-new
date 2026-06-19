@@ -5,7 +5,7 @@ import styles from './BmdBms.module.css'
 const BMD_FEATURES = [
   {
     title: 'Advanced State Estimation',
-    desc: 'High-precision SOC (State of Charge) and SOH (State of Health) algorithms ensuring optimal cell utilization and lifecycle extension.',
+    desc: 'High-accuracy SoC and SoH algorithms for better range prediction, utilization, and lifecycle planning.',
     wide: true,
     icon: (
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
@@ -14,8 +14,8 @@ const BMD_FEATURES = [
     ),
   },
   {
-    title: 'Cloud Integration',
-    desc: 'Real-time telemetry streaming to secure cloud infrastructure for predictive maintenance and fleet analytics.',
+    title: 'Scalable High-Voltage Architecture',
+    desc: 'Master–slave topology that scales from EV packs to containerized energy storage systems without redesign.',
     wide: false,
     icon: (
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
@@ -24,8 +24,8 @@ const BMD_FEATURES = [
     ),
   },
   {
-    title: 'Edge Processing',
-    desc: 'Local diagnostic capabilities with sub-millisecond response times for critical safety events.',
+    title: 'Diagnostics and Event Logging',
+    desc: 'On-board fault logging and telemetry to support faster debugging, remote monitoring, and field service.',
     wide: false,
     icon: (
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
@@ -34,8 +34,8 @@ const BMD_FEATURES = [
     ),
   },
   {
-    title: 'Multi-Sensor Array',
-    desc: 'Simultaneous thermal, voltage, and current monitoring across hundreds of distributed nodes.',
+    title: 'System Integration Ready',
+    desc: 'Standard communication interfaces and configurable I/O for seamless integration with chargers, vehicle controllers, and EMS/SCADA.',
     wide: false,
     icon: (
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
@@ -47,9 +47,9 @@ const BMD_FEATURES = [
 ]
 
 const SYSTEM_SPECS = [
-  { param: 'Voltage Range', bms: '0 – 80V (Per Module)',  remarks: 'Up to 1500V (System)' },
-  { param: 'Accuracy',      bms: '±1 mV',                 remarks: 'System Level Aggregation' },
-  { param: 'Isolation',     bms: 'Galvanic (IsoSPI)',      remarks: 'High Voltage Barrier' },
+  { param: 'Voltage Range', bms: '0 – 80V (Per Module)',  remarks: 'Up to 2800V (Per Rack)' },
+  { param: 'Accuracy',      bms: '±1.5 mV',   remarks: 'System Level Aggregation' },
+  { param: 'Isolation',     bms: 'Optical',      remarks: 'High Voltage Barrier' },
 ]
 
 export default function BmdBms() {
@@ -67,14 +67,14 @@ export default function BmdBms() {
         <div className={styles.hero}>
           <div className={styles.heroBadge}>
             <span className={styles.heroDot} />
-            SYSTEMS ONLINE
+            BMS: ACTIVE 
           </div>
           <h2 className={styles.heroTitle}>
-            BMS: Advanced Battery Management System
+            High-Voltage BMS: Precise. Scalable. Flexible.
           </h2>
           <p className={styles.heroDesc}>
-            Next-generation Intelligent Battery Monitoring (BMD) and Advanced Battery
-            Control (BMS) for high-frequency applications.
+            Engineered for electric mobility and energy storage applications, 
+            with real-time monitoring, intelligent protection, and reliable pack control in a scalable architecture.
           </p>
           <div className={styles.heroActions}>
             <button className="btn-primary">View Datasheet</button>
@@ -139,15 +139,15 @@ export default function BmdBms() {
                 <ul className={styles.bmsList}>
                   <li>
                     <strong>High-Voltage Handling</strong>
-                    <span>Safely orchestrates string voltages up to 1500V DC across multi-module packs.</span>
+                    <span>Safely orchestrates string voltages up to 2800V DC per-rack</span>
                   </li>
                   <li>
                     <strong>Contactor Control</strong>
                     <span>Precision timing for pre-charge and main contactor sequencing to prevent inrush damage.</span>
                   </li>
                   <li>
-                    <strong>Thermal Oversight</strong>
-                    <span>Continuous pack-level temperature monitoring with automatic load derating on threshold breach.</span>
+                    <strong>Fault Handling & pack-level Decision</strong>
+                    <span>Identifies critical faults and triggers pack-level responses to protect the battery system.</span>
                   </li>
                 </ul>
               </div>
@@ -155,20 +155,20 @@ export default function BmdBms() {
               {/* Slave Node */}
               <div className={styles.bmsCard}>
                 <div className={styles.bmsCardHeader}>
-                  <span className={styles.bmsCardTitle}>Slave Node Alpha</span>
+                  <span className={styles.bmsCardTitle}>Slave Nodes</span>
                 </div>
                 <ul className={styles.bmsList}>
                   <li>
-                    <strong>Active Cell Balancing</strong>
-                    <span>Maintains cell voltage uniformity across all nodes for extended pack life.</span>
+                    <strong>Voltage & Temperature Sensing</strong>
+                    <span>Real-time per-cell Voltage and temp sensing across the battery pack.</span>
                   </li>
                   <li>
-                    <strong>Distributed Monitoring</strong>
-                    <span>Real-time per-cell voltage and temperature sensing across the entire string.</span>
+                    <strong>Cell Balancing</strong>
+                    <span>Maintains voltage uniformity across cells to improve pack performance, efficiency, and battery life.</span>
                   </li>
                   <li>
-                    <strong>Fault Isolation</strong>
-                    <span>Instantly isolates faulty cells to prevent cascade failure and ensure safety.</span>
+                    <strong>Edge Processing & Module Communication </strong>
+                    <span>SoC of each cell and other operational data processed locally before transmission.</span>
                   </li>
                 </ul>
               </div>
@@ -176,20 +176,20 @@ export default function BmdBms() {
               {/* Communications */}
               <div className={styles.bmsCard}>
                 <div className={styles.bmsCardHeader}>
-                  <span className={styles.bmsCardTitle}>Communications</span>
+                  <span className={styles.bmsCardTitle}>High-Speed Communication</span>
                 </div>
                 <ul className={styles.bmsList}>
                   <li>
-                    <strong>CAN Bus 2.0B</strong>
-                    <span>Industry-standard vehicular protocol for robust, real-time data exchange with ECUs.</span>
+                    <strong>System Bus Interfaces</strong>
+                    <span>CAN Bus 2.0B and Modbus‑TCP to connect with controllers, PCS, and industrial systems.</span>
                   </li>
                   <li>
-                    <strong>IsoSPI</strong>
-                    <span>Galvanically isolated daisy-chain interface for safe inter-module communication up to 1500V.</span>
+                    <strong>Module Networking</strong>
+                    <span>IsoSPI-based isolated daisy-chain communication for robust high-voltage module data transfer.</span>
                   </li>
                   <li>
-                    <strong>Ethernet (Optional)</strong>
-                    <span>High-bandwidth connectivity for cloud telemetry, OTA firmware updates, and fleet diagnostics.</span>
+                    <strong>Connected Telemetry</strong>
+                    <span>BLE for local commissioning, and diagnostics, Firmware Updates, GSM/Ethernet for cloud connectivity.</span>
                   </li>
                 </ul>
               </div>

@@ -2,8 +2,8 @@ import { useStaggerAnimation } from '../hooks/useScrollAnimation'
 import styles from './StatsStrip.module.css'
 
 const STATS = [
-  { num: '40%', label: 'Reduction in anode swelling' },
-  { num: '3×',  label: 'Energy density gain' },
+  { num: '30-40%', label: 'Longer Battery Cycle Life' },
+  { num: '4×',  label: 'Longer to Thermal Runaway' },
   { num: '500+',label: 'Charge cycles tested' },
   { num: '6',   label: 'Industry verticals' },
 ]

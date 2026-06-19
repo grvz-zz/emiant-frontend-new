@@ -6,7 +6,7 @@ const MEMBERS = [
     name: 'Akshay Kumar',
     title: 'Chief Executive Officer',
     linkedin: 'https://in.linkedin.com/in/akshay-kumar-678515106',
-    img: '/akshay.png',
+    img: '/Ak.jpeg',
   },
   {
     name: 'Naveen Chitturi',
@@ -15,7 +15,7 @@ const MEMBERS = [
     img: '/naveen.jpg',
   },
   {
-    name: 'Chirag',
+    name: 'Chirag Jingar',
     title: 'Chief Technology Officer',
     linkedin: 'https://in.linkedin.com/in/chirag-jingar-65b97114',
     img: '/chirag.png',

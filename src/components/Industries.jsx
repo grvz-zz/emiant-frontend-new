@@ -43,11 +43,12 @@ export default function Industries() {
       <div className={`reveal ${styles.header}`} ref={headerRef}>
         <div className="section-eyebrow">Applications</div>
         <h2 className="section-title">
-          Transforming Industries with<br />Advanced Energy
+          Engineered for Demanding Energy Systems.
         </h2>
         <p className="section-sub">
-          Our scalable silicon anode technology unlocks unprecedented performance
-          across diverse applications, enabling the next wave of electrification.
+          Our scalable BMS, passive thermal materials, and 
+          software layer work together to deliver safer, 
+          longer‑lasting batteries for EV and ESS applications.
         </p>
       </div>
 

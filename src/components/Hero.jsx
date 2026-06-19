@@ -54,9 +54,9 @@ export default function Hero() {
   // Typewriter effect
   useEffect(() => {
     const word = ROTATING_WORDS[wordIndex]
-    const typeSpeed = isDeleting ? 40 : 70
-    const pauseBeforeDelete = 1800
-    const pauseBeforeType = 300
+    const typeSpeed = isDeleting ? 90 : 60
+    const pauseBeforeDelete = 2000
+    const pauseBeforeType = 200
 
     if (!isDeleting && displayText === word) {
       const t = setTimeout(() => setIsDeleting(true), pauseBeforeDelete)
@@ -88,7 +88,7 @@ export default function Hero() {
       <div className={styles.content} ref={contentRef}>
         <div className={styles.tag}>
           <span className={styles.tagDot} />
-          Advanced Silicon Technology
+          Advanced Battery Technology
         </div>
 
         <h1>
@@ -102,8 +102,8 @@ export default function Hero() {
         </h1>
 
         <p className={styles.sub}>
-          Revolutionizing energy storage with advanced Silicon-dominant anodes
-          for electric vehicles, aerospace, and beyond.
+          Intelligent battery systems with advanced thermal and battery management 
+          for EVs, BESS, and Aerospace, and beyond...
         </p>
 
         <div className={styles.actions}>

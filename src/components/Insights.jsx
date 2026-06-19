@@ -5,7 +5,7 @@ const ARTICLES = [
   {
     tag: 'R&D Update',
     title: 'Breakthrough in Silicon Expansion Control',
-    body: 'Our latest testing cycle has verified a 40% reduction in anode swelling during rapid charge cycles using our proprietary buffer matrix.',
+    body: 'Our latest Testing cycle has verified a 40% reduction in anode swelling during rapid charge cycles using our proprietary buffer matrix.',
     cta: 'Read Full Report',
     img: 'https://images.unsplash.com/photo-1581092160562-40aa08e78837?w=700&q=80',
   },
