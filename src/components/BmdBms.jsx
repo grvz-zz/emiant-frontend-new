@@ -47,7 +47,7 @@ const BMD_FEATURES = [
 ]
 
 const SYSTEM_SPECS = [
-  { param: 'Voltage Range', bms: '0 – 80V (Per Module)',  remarks: 'Up to 2800V (Per Rack)' },
+  { param: 'Voltage Range', bms: '12 – 80V (Per Module)',  remarks: 'Up to 2800V (Per Rack)' },
   { param: 'Accuracy',      bms: '±1.5 mV',   remarks: 'System Level Aggregation' },
   { param: 'Isolation',     bms: 'Optical',      remarks: 'High Voltage Barrier' },
 ]

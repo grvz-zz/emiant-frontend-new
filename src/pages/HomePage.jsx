@@ -26,18 +26,15 @@ function AboutSection() {
         <div className={styles.aboutLeft}>
           <div className={styles.aboutBadge}>
             <span className={styles.aboutDot} />
-            MISSION PROTOCOL 01
+            Our Mission
           </div>
           <h2 className={styles.aboutTitle}>
-            Committed to a Sustainable Energy Future.
+            Maximizing Battery Safety and Performance
           </h2>
           <p className={styles.aboutDesc}>
-            At Emiant, we're committed to a sustainable future. As a pioneering force
-            in the green energy sector, we've been at the forefront of the transition
-            to clean, renewable power sources. Our mission is simple yet profound —
-            to create a world where energy is not only abundant but also environmentally
-            responsible. We believe that by harnessing the power of nature, we can
-            power the world and protect it simultaneously.
+            At Emiant, we build technologies that make batteries safer, smarter, and more reliable. 
+            From high-voltage BMS and advanced passive thermal management to battery intelligence software, 
+            our work is focused on improving safety, performance, and lifecycle visibility across EV, BESS, Aerospace and Beyond...
           </p>
         </div>
         <div className={styles.aboutRight}>
@@ -48,9 +45,9 @@ function AboutSection() {
       {/* ── Supported By ── */}
       <div className={styles.supportedBy}>
         <div className={styles.supportedHeader}>
-          <div className={styles.supportedEyebrow}>SUPPORTED BY</div>
+          <div className={styles.supportedEyebrow}>BACKED BY LEADING INSTITUTIONS</div>
           <p className={styles.supportedDesc}>
-            Backed by leading institutions driving innovation in deep-tech and clean energy.
+            Trusted by innovation partners accelerating the future of battery technology.
           </p>
         </div>
         <div className={styles.supportedGrid}>

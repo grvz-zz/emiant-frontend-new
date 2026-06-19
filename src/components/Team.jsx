@@ -4,19 +4,19 @@ import styles from './Team.module.css'
 const MEMBERS = [
   {
     name: 'Akshay Kumar',
-    title: 'Chief Executive Officer',
+    title: 'CEO',
     linkedin: 'https://in.linkedin.com/in/akshay-kumar-678515106',
-    img: '/Ak.jpeg',
+    img: '/Ak.png',
   },
   {
     name: 'Naveen Chitturi',
-    title: 'Chief Operations Officer',
+    title: 'COO',
     linkedin: 'https://in.linkedin.com/in/naveen-chitturi-b07012119',
-    img: '/naveen.jpg',
+    img: '/Naveen.png',
   },
   {
     name: 'Chirag Jingar',
-    title: 'Chief Technology Officer',
+    title: 'CTO',
     linkedin: 'https://in.linkedin.com/in/chirag-jingar-65b97114',
     img: '/chirag.png',
   },

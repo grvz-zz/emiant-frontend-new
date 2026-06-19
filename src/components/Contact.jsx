@@ -36,8 +36,8 @@ export default function Contact() {
         <div className="section-eyebrow">Contact</div>
         <h2 className="section-title">Get in Touch</h2>
         <p className="section-sub">
-          Partner with Emiant Innovations to integrate next-generation energy storage
-          into your product line.
+          Talk to our team about integrating advanced battery management, 
+          passive thermal control, and battery intelligence software into your platform.
         </p>
       </div>
 

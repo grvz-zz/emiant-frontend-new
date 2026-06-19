@@ -3,7 +3,7 @@ import { Link, NavLink, useLocation, useNavigate } from 'react-router-dom'
 import styles from './Navbar.module.css'
 
 const NAV_LINKS = [
-  { label: 'Solutions',   href: '/#applications' },
+  { label: 'Applications',   href: '/#applications' },
   { label: 'Technology',  href: '/#technology' },
   { label: 'Team',        href: '/#team' },
   { label: 'About',       href: '/#about' },
