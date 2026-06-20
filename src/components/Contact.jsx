@@ -85,6 +85,17 @@ export default function Contact() {
               <div className={styles.successIcon}>✓</div>
               <h3>Inquiry Received</h3>
               <p>We'll be in touch within 1–2 business days.</p>
+              <button
+                className="btn-outline"
+                style={{ marginTop: '20px' }}
+                onClick={() => {
+                  setSubmitted(false)
+                  setForm({ first_name:'', last_name:'', reply_to:'', phone:'', company:'', message:'' })
+                  setError(null)
+                }}
+              >
+                Submit Another Query
+              </button>
             </div>
           ) : (
             <form onSubmit={handleSubmit} className={styles.form} ref={formEl}>
