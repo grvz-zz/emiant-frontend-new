@@ -1,4 +1,5 @@
-import { useState } from 'react'
+import { useState, useRef } from 'react'
+import emailjs from '@emailjs/browser'
 import { useScrollAnimation } from '../hooks/useScrollAnimation'
 import styles from './Contact.module.css'
 
@@ -34,16 +35,35 @@ export default function Contact() {
   const headerRef = useScrollAnimation()
   const formRef   = useScrollAnimation({ threshold: 0.1 })
   const infoRef   = useScrollAnimation({ threshold: 0.1 })
+  const formEl    = useRef(null)
 
   const [activeOffice, setActiveOffice] = useState(0)
-  const [form, setForm] = useState({ firstName:'', lastName:'', email:'', company:'', inquiry:'' })
+  const [form, setForm] = useState({ first_name:'', last_name:'', reply_to:'', phone:'', company:'', message:'' })
   const [submitted, setSubmitted] = useState(false)
+  const [sending, setSending] = useState(false)
+  const [error, setError] = useState(null)
 
   const update = (field) => (e) => setForm(f => ({ ...f, [field]: e.target.value }))
 
   const handleSubmit = (e) => {
     e.preventDefault()
-    setSubmitted(true)
+    setSending(true)
+    setError(null)
+
+    emailjs.sendForm(
+      import.meta.env.VITE_EMAILJS_SERVICE_ID,
+      import.meta.env.VITE_EMAILJS_TEMPLATE_ID,
+      formEl.current,
+      import.meta.env.VITE_EMAILJS_PUBLIC_KEY
+    )
+    .then(() => {
+      setSubmitted(true)
+      setSending(false)
+    })
+    .catch(() => {
+      setError('Something went wrong. Please try again or email us at emiant.queries@gmail.com')
+      setSending(false)
+    })
   }
 
   return (
@@ -67,31 +87,36 @@ export default function Contact() {
               <p>We'll be in touch within 1–2 business days.</p>
             </div>
           ) : (
-            <form onSubmit={handleSubmit} className={styles.form}>
+            <form onSubmit={handleSubmit} className={styles.form} ref={formEl}>
               <div className={styles.row}>
                 <div className={styles.field}>
-                  <label htmlFor="firstName">First Name</label>
-                  <input id="firstName" type="text" placeholder="First" value={form.firstName} onChange={update('firstName')} required />
+                  <label htmlFor="first_name">First Name</label>
+                  <input id="first_name" name="first_name" type="text" placeholder="First" value={form.first_name} onChange={update('first_name')} required />
                 </div>
                 <div className={styles.field}>
-                  <label htmlFor="lastName">Last Name</label>
-                  <input id="lastName" type="text" placeholder="Last" value={form.lastName} onChange={update('lastName')} required />
+                  <label htmlFor="last_name">Last Name</label>
+                  <input id="last_name" name="last_name" type="text" placeholder="Last" value={form.last_name} onChange={update('last_name')} required />
                 </div>
               </div>
               <div className={styles.field}>
-                <label htmlFor="email">Work Email</label>
-                <input id="email" type="email" placeholder="you@company.com" value={form.email} onChange={update('email')} required />
+                <label htmlFor="reply_to">Work Email</label>
+                <input id="reply_to" name="reply_to" type="email" placeholder="you@company.com" value={form.reply_to} onChange={update('reply_to')} required />
+              </div>
+              <div className={styles.field}>
+                <label htmlFor="phone">Phone Number</label>
+                <input id="phone" name="phone" type="tel" placeholder="+91 98765 43210" value={form.phone} onChange={update('phone')} />
               </div>
               <div className={styles.field}>
                 <label htmlFor="company">Company / Organization</label>
-                <input id="company" type="text" placeholder="Acme Corp" value={form.company} onChange={update('company')} />
+                <input id="company" name="company" type="text" placeholder="Acme Corp" value={form.company} onChange={update('company')} />
               </div>
               <div className={styles.field}>
-                <label htmlFor="inquiry">Inquiry Details</label>
-                <textarea id="inquiry" placeholder="Tell us about your project…" value={form.inquiry} onChange={update('inquiry')} rows={5} />
+                <label htmlFor="message">Inquiry Details</label>
+                <textarea id="message" name="message" placeholder="Tell us about your project…" value={form.message} onChange={update('message')} rows={5} required />
               </div>
-              <button type="submit" className={`btn-primary ${styles.submit}`}>
-                Submit Inquiry
+              {error && <p className={styles.errorMsg}>{error}</p>}
+              <button type="submit" className={`btn-primary ${styles.submit}`} disabled={sending}>
+                {sending ? 'Sending…' : 'Submit Inquiry'}
               </button>
             </form>
           )}
@@ -100,7 +125,6 @@ export default function Contact() {
         {/* INFO */}
         <div className={`reveal-right ${styles.info}`} ref={infoRef}>
           <div className={styles.infoBlock}>
-            {/* Office tabs */}
             <div className={styles.officeTabs}>
               {OFFICES.map((o, i) => (
                 <button
@@ -137,7 +161,7 @@ export default function Contact() {
           <div className={styles.infoBlock}>
             <h3 className={styles.infoTitle}><PhoneIcon /> Direct Contact</h3>
             <p>
-              <a href="mailto:info@emiant.com">info@emiant.com</a>
+              <a href="mailto:emiant.queries@gmail.com">emiant.queries@gmail.com</a>
             </p>
           </div>
         </div>
