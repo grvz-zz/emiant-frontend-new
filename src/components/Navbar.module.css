@@ -123,8 +123,15 @@
   z-index: 110;
 }
 
-.dropdown:hover .dropdownMenu,
-.dropdown:focus-within .dropdownMenu,
+@media (min-width: 769px) {
+  .dropdown:hover .dropdownMenu,
+  .dropdown:focus-within .dropdownMenu {
+    opacity: 1;
+    visibility: visible;
+    pointer-events: auto;
+  }
+}
+
 .dropdownMenu.dropdownOpen {
   opacity: 1;
   visibility: visible;
@@ -190,10 +197,28 @@
 
 .hamburger:hover span { background: #fff; }
 
-@media (max-width: 768px) {
-  .nav { padding: 0 20px; }
+/* Desktop only: show Get Started button, hide mobile one */
+.getStartedDesktop { display: inline-flex; }
+.getStartedMobile  { display: none; }
 
-  .hamburger { display: flex; }
+@media (max-width: 768px) {
+  .nav {
+    padding: 0 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  /* Hamburger on the right */
+  .hamburger {
+    display: flex;
+  }
+
+  /* Hide desktop Get Started from navbar bar */
+  .getStartedDesktop { display: none !important; }
+
+  /* Show Get Started inside the mobile menu */
+  .getStartedMobile { display: block; }
 
   .links {
     display: none;
@@ -204,7 +229,7 @@
     flex-direction: column;
     align-items: stretch;
     gap: 0;
-    padding: 16px 0;
+    padding: 16px 0 24px;
     border-bottom: 1px solid var(--border2);
   }
 
@@ -236,6 +261,14 @@
     border-radius: 0;
     background: rgba(255, 255, 255, 0.03);
     padding: 0;
+    opacity: 1;
+    visibility: visible;
+    pointer-events: auto;
+    display: none;
+  }
+
+  .dropdownMenu.dropdownOpen {
+    display: flex;
   }
 
   .dropdownMenu li a,

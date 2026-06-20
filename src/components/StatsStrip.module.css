@@ -42,8 +42,18 @@
 }
 
 @media (max-width: 600px) {
+  .strip { padding: 0 16px; }
   .grid { grid-template-columns: repeat(2, 1fr); }
+  .item {
+    padding: 28px 12px;
+  }
   .item:nth-child(2) { border-right: none; }
   .item:nth-child(3) { border-top: 1px solid var(--border2); }
   .item:nth-child(4) { border-top: 1px solid var(--border2); border-right: none; }
+  .num {
+    font-size: 28px;
+  }
+  .label {
+    font-size: 10px;
+  }
 }

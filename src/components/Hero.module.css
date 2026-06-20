@@ -198,5 +198,8 @@
 
 @media (max-width: 768px) {
   .hero { padding: 0 20px 72px; }
-  .content h1 { font-size: 38px; }
+  .content h1 { font-size: clamp(24px, 7.5vw, 32px); }
+  .content h1 em { font-size: clamp(24px, 7.5vw, 32px); }
+  .rotatingWord { white-space: normal; word-break: break-word; }
+  .cursor { font-size: clamp(24px, 7.5vw, 32px); }
 }

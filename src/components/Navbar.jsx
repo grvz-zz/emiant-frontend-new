@@ -127,9 +127,14 @@ export default function Navbar() {
             )}
           </Fragment>
         ))}
+        <li className={styles.getStartedMobile}>
+          <a href="/#contact" onClick={(e) => handleHashLink(e, '/#contact')} className="btn-primary" style={{margin:'8px 24px',display:'block',textAlign:'center'}}>
+            Get Started
+          </a>
+        </li>
       </ul>
 
-      <a href="/#contact" onClick={(e) => handleHashLink(e, '/#contact')} className="btn-outline" style={{ fontSize: '13px', whiteSpace: 'nowrap' }}>
+      <a href="/#contact" onClick={(e) => handleHashLink(e, '/#contact')} className={`btn-outline ${styles.getStartedDesktop}`} style={{ fontSize: '13px', whiteSpace: 'nowrap' }}>
         Get Started
       </a>
 
