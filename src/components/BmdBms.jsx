@@ -4,9 +4,8 @@ import styles from './BmdBms.module.css'
 
 const BMD_FEATURES = [
   {
-    title: 'Advanced State Estimation',
-    desc: 'High-accuracy SoC and SoH algorithms for better range prediction, utilization, and lifecycle planning.',
-    wide: true,
+    title: 'State Estimation & Integration',
+    desc: 'High-accuracy SoC/SoH algorithms for optimised range and lifecycle, with configurable I/O for seamless integration with chargers, vehicle controllers, and EMS/SCADA.',
     icon: (
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
         <polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/>
@@ -15,42 +14,20 @@ const BMD_FEATURES = [
   },
   {
     title: 'Scalable High-Voltage Architecture',
-    desc: 'Master–slave topology that scales from EV packs to containerized energy storage systems without redesign.',
-    wide: false,
+    desc: 'Master–slave topology that scales from EV packs to containerised energy storage systems without redesign.',
     icon: (
-   <svg
-    viewBox="0 0 24 24"
-    fill="none"
-    stroke="currentColor"
-    strokeWidth="1.5"
-    strokeLinecap="round"
-    strokeLinejoin="round"
-   >
-    <path d="M12 3H5a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7" />
-    <path d="M14 15H9v-5" />
-    <path d="M16 3h5v5" />
-    <path d="M21 3 9 15" />
-  </svg>
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
+        <path d="M12 3H5a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"/>
+        <path d="M14 15H9v-5"/><path d="M16 3h5v5"/><path d="M21 3 9 15"/>
+      </svg>
     ),
   },
   {
     title: 'Diagnostics and Event Logging',
     desc: 'On-board fault logging and telemetry to support faster debugging, remote monitoring, and field service.',
-    wide: false,
     icon: (
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
         <rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/>
-      </svg>
-    ),
-  },
-  {
-    title: 'System Integration Ready',
-    desc: 'Standard communication interfaces and configurable I/O for seamless integration with chargers, vehicle controllers, and EMS/SCADA.',
-    wide: false,
-    icon: (
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
-        <circle cx="12" cy="5" r="2"/><circle cx="5" cy="19" r="2"/><circle cx="19" cy="19" r="2"/>
-        <path d="M12 7v4M12 11l-5.5 6.5M12 11l5.5 6.5"/>
       </svg>
     ),
   },
@@ -88,6 +65,7 @@ export default function BmdBms() {
           </p>
           <div className={styles.heroActions}>
             <button className="btn-primary">View Datasheet</button>
+            <button className="btn-outline">Request Sample</button>
             <button
               className={`btn-outline ${styles.viewMoreBtn}`}
               onClick={() => setExpanded(v => !v)}
@@ -114,18 +92,12 @@ export default function BmdBms() {
           {/* ── BMD FEATURES ── */}
           <div className={styles.subsection}>
             <div className={styles.bmdGrid}>
-              {BMD_FEATURES.map(({ title, desc, icon, wide }) => (
-                <div key={title} className={`${styles.featCard} ${wide ? styles.featCardWide : ''}`}>
+              {BMD_FEATURES.map(({ title, desc, icon }) => (
+                <div key={title} className={styles.featCard}>
                   <div className={styles.featIcon}>{icon}</div>
                   <h4 className={styles.featTitle}>{title}</h4>
                   <p className={styles.featDesc}>{desc}</p>
-                  {wide && (
-                    <div className={styles.chartMini}>
-                      {[30, 45, 35, 55, 42, 60, 50, 68, 58, 72, 65, 80].map((h, i) => (
-                        <div key={i} className={styles.chartBar} style={{ height: `${h}%` }} />
-                      ))}
-                    </div>
-                  )}
+
                 </div>
               ))}
             </div>

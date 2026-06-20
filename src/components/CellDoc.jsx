@@ -139,6 +139,7 @@ export default function CellDoc() {
           </p>
           <div className={styles.heroActions}>
             <button className="btn-primary">View Datasheet</button>
+            <button className="btn-outline">Live Demo</button>
             <button
               className={`btn-outline ${styles.viewMoreBtn}`}
               onClick={() => setExpanded(v => !v)}
